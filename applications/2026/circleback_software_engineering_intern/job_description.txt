@@ -1,0 +1,24 @@
+Circleback — Software Engineering Intern
+Location: San Francisco, CA
+Term: SUMMER 2027  <-- stated explicitly. You graduate May 2027. See notes.md.
+Pay: not stated
+Captured: 2026-08-04
+
+ABOUT THE JOB
+
+We're looking for a software engineering intern who takes pride in their craft
+to join us in San Francisco to build great software together in summer 2027.
+
+WHAT YOU'LL DO
+
+- Build new features end-to-end, everything from database models to API
+  endpoints and UI components for our web (React), desktop (Electron), and
+  mobile apps (React Native)
+- Improve product foundations (AI-powered outcomes, search, Circleback
+  Assistant, transcription, on-device recording/streaming, app and API
+  performance, automations, and other new initiatives)
+- Apply learnings from customer conversations into product improvements
+
+NOTE: the posting as captured states no degree or enrollment requirement, and
+no "currently pursuing" language. That absence is worth asking about rather
+than assuming either way.

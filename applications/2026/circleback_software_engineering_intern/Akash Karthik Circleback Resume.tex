@@ -1,0 +1,87 @@
+% ---------------------------------------------------------------------------
+% Circleback - Software Engineering Intern (San Francisco, summer 2027)
+% Tailored from bases/software_backend.tex on 2026-08-04
+% Worksheet: notes.md in this folder. Posting: job_description.txt
+%
+% Positioning: genuinely full-stack (DB models -> API -> UI) plus real-time
+% media. Posture Detection swapped in - it is the closest thing owned to their
+% "on-device recording/streaming" and performance work, and the only
+% application where it is a first-class asset. FSAE controls dropped: pure
+% product company. No Electron, React Native, transcription, or search claimed.
+%
+% Do NOT put the company name anywhere in the rendered document. It belongs in
+% the filename only.
+% ---------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+\usepackage{resume}
+
+\begin{document}
+\bodyfont
+
+\resumeheader
+\educationsection
+
+\sectionheader{TECHNICAL SKILLS}
+
+\techline{\textbf{Languages}: TypeScript/JavaScript, Python, SQL, C/C++, Java}
+\techline{\textbf{Frontend}: React, HTML/CSS/JavaScript, client-side state management, responsive UI}
+\techline{\textbf{Backend \& Data}: FastAPI, Flask, Node.js/Express, REST/JSON, WebSockets, real-time streaming, SQLite, SQL Server, schema design}
+\techline{\textbf{Performance \& Delivery}: Real-time media pipelines, OpenCV, FPS and latency instrumentation, pytest, Jest, GitHub Actions, Docker, Git/GitHub}
+
+\sectionheader{EXPERIENCE}
+
+\roleline{Software Lead}{Jun 2026 - Present}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Lead software planning for Python tooling, validation, and shared testing workflows across five project teams
+  \item Standardize requirements, test evidence, and technical reviews spanning dashboard, simulation, and vehicle software
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Engineer Intern}{Feb 2026 - Present}
+\orgline{Argus Defense \textbar{} San Jose, CA}
+\begin{itemize}
+  \item Developed and validated flight-control software in C, using structured telemetry logs to reproduce issues and evaluate changes
+  \item Integrated visual-inertial odometry and iterated configuration through repeatable tests and documented results
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Development Intern}{Sep 2024 - Oct 2024}
+\orgline{Zip Intelligence \textbar{} Tracy, CA}
+\begin{itemize}
+  \item Took ownership of a feature from ticket through verified production release, shipping via pull requests with setup and change documentation
+  \item Implemented frontend validation and clearer error states, then paired with engineers to harden REST endpoints for status codes and edge cases
+  \item Added SQL Server update scripts and structured logs to speed reproduction and issue triage
+\end{itemize}
+
+\sectionheader{PROJECT EXPERIENCE}
+
+\roleline{Tickr --- AI-Coached Paper-Trading Game}{2025}
+\techline{TypeScript/JavaScript, React, LLM integration, responsive UI}
+\begin{itemize}
+  \item Built registration, sign-in, game, and history flows end-to-end for a scenario-driven trading game with an LLM-backed coach
+  \item Implemented quest and prompt logic, client-side state management, and a mobile-responsive interface
+\end{itemize}
+
+\entryspace
+
+\roleline{Posture Detection System --- Real-Time Media Pipeline}{2025}
+\techline{Python, OpenCV, real-time video processing, performance instrumentation}
+\begin{itemize}
+  \item Built an on-device pipeline that captures and processes live video frames with temporal smoothing, debounce logic, and configurable alert thresholds
+  \item Instrumented frame rate and end-to-end latency, recorded sessions, and exported labeled frames and CSV metrics to tune the pipeline against real usage
+\end{itemize}
+
+\entryspace
+
+\roleline{SR-Wireless-CAN --- Real-Time Telemetry Platform}{2026}
+\orgline{\spartanracing \textbar{} Backend lead}
+\techline{Python, FastAPI, WebSockets, React, SQLite, Docker Compose}
+\begin{itemize}
+  \item Led backend development for a real-time telemetry platform, building a FastAPI and WebSocket service that streams live data to a React dashboard with SQLite persistence
+  \item Designed the schema and merge logic for signal definitions with conflict resolution, and a bounded search window keeping large catalogs responsive
+\end{itemize}
+
+\end{document}
