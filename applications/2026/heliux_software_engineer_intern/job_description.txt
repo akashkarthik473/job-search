@@ -1,0 +1,44 @@
+Heliux — Software Engineer Intern
+Location: NOT STATED IN POSTING — find out before applying
+Term: NOT STATED
+Pay: NOT STATED
+Captured: 2026-08-04
+
+WHY HELIUX
+
+Heliux is building the AI-native operating system for the manufacturing
+enterprise. We're fundamentally reshaping how engineering and manufacturing
+companies run by eliminating cross-functional fragmentation and enabling agentic
+execution on a single, shared operational reality. Companies developing and
+scaling production of next-generation defense systems, nuclear reactors,
+robotics, and more all trust Heliux to drive their operations.
+
+We're on a mission to deliver unprecedented operating performance for
+manufacturers. Our team is built on a foundation of grit combined with deep
+commitment to our customers and the mission. If you want to do important work
+for critical industries on an ambitious, high-energy team, we'd love for you to
+join us.
+
+ABOUT THE ROLE
+
+Engineers at Heliux are directly responsible for end-to-end design, development,
+and delivery of our core software platform. As an intern, the expectation is
+that you will operate at the same capacity as a full-time engineer.
+
+- Acquire expertise in hardware engineering and manufacturing through immersive,
+  hands-on problem-solving with our customers.
+- Rapidly design, build, test, deliver, and maintain complex software systems
+  that are performant, reliable, and scalable.
+- Contribute to the high-level technical direction of both the organization and
+  the platform to ensure we are always accelerating the velocity of our work.
+- Relentlessly solve any and all technical problems that stand in the way of
+  company objectives—and therefore, our success.
+
+ABOUT YOU
+
+- Proven experience building complex, scalable software systems from zero-to-one
+  —i.e., problem identification to production-grade solution.
+- Demonstrated proficiency in programming languages such as Rust, Python, Java,
+  TypeScript, or similar.
+- Inherent desire to operate with extreme levels of urgency across all aspects
+  of life and work.

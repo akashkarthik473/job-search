@@ -1,0 +1,87 @@
+% ---------------------------------------------------------------------------
+% Heliux - Software Engineer Intern
+% Tailored from bases/software_backend.tex on 2026-08-04
+% Worksheet: notes.md in this folder. Posting: job_description.txt
+%
+% Positioning: they sell software TO manufacturers, so the win is software
+% systems + genuine hardware/manufacturing fluency. SR-Wireless-CAN leads the
+% projects, rewritten problem-first to match their literal "problem
+% identification to production-grade solution" phrasing. Hardware skills line
+% added so the domain context is scannable. No Rust claimed, no "at scale".
+%
+% Do NOT put the company name anywhere in the rendered document. It belongs in
+% the filename only.
+% ---------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+\usepackage{resume}
+
+\begin{document}
+\bodyfont
+
+\resumeheader
+\educationsection
+
+\sectionheader{TECHNICAL SKILLS}
+
+\techline{\textbf{Languages}: Python, TypeScript/JavaScript, C/C++, Java, SQL}
+\techline{\textbf{Backend \& Systems}: FastAPI, Flask, Node.js/Express, React, REST/JSON, WebSockets, real-time streaming, schema design, Docker}
+\techline{\textbf{Hardware \& Manufacturing}: CAN/DBC protocols, embedded firmware, VCU and STM32 targets, PX4 flight systems, hardware bring-up, test and validation campaigns}
+\techline{\textbf{Delivery}: pytest, Jest, GitHub Actions, structured logging, software-in-the-loop regression testing, Git/GitHub}
+
+\sectionheader{EXPERIENCE}
+
+\roleline{Software Lead}{Jun 2026 - Present}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Lead software planning and technical direction across five project teams spanning controls, telemetry, diagnostics, simulation, and vehicle testing
+  \item Standardize requirements, test evidence, and review process so changes reach the car faster and with fewer regressions
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Engineer Intern}{Feb 2026 - Present}
+\orgline{Argus Defense \textbar{} San Jose, CA}
+\begin{itemize}
+  \item Developed and validated flight-control software in C on PX4, using structured telemetry logs to reproduce issues and evaluate changes
+  \item Integrated visual-inertial odometry and iterated configuration through repeatable tests and documented results
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Controls Engineer}{Jul 2025 - Jun 2026}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Implemented a real-time control routine in C on an embedded vehicle controller, meeting hard deterministic timing budgets with fixed-point arithmetic
+  \item Built Python telemetry parsers and a software-in-the-loop replay harness that validated changes against recorded logs before they reached hardware
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Development Intern}{Sep 2024 - Oct 2024}
+\orgline{Zip Intelligence \textbar{} Tracy, CA}
+\begin{itemize}
+  \item Took ownership of a feature from ticket through verified production release, shipping via pull requests with setup and change documentation
+  \item Hardened REST endpoints for status codes and edge cases, and added SQL Server scripts and structured logs to speed reproduction and triage
+\end{itemize}
+
+\sectionheader{PROJECT EXPERIENCE}
+
+\roleline{SR-Wireless-CAN --- Wireless Flashing \& Telemetry Platform}{2026}
+\orgline{\spartanracing \textbar{} Backend lead}
+\techline{Python, python-can, FastAPI, WebSockets, React, SQLite, Docker Compose}
+\begin{itemize}
+  \item Identified that firmware updates required a tethered vendor tool, decoded the undocumented flashing sequence from bus trace captures, and shipped a Python implementation that flashes the controller over the wireless link
+  \item Led backend development for the platform, building a FastAPI and WebSocket service that streams live telemetry to a browser dashboard with recorded-trace replay
+  \item Implemented structured signal-definition merge with conflict resolution, and containerized the stack with Docker Compose for one-command deployment
+\end{itemize}
+
+\entryspace
+
+\roleline{Tickr --- AI-Coached Paper-Trading Game}{2025}
+\techline{TypeScript/JavaScript, React, LLM integration, responsive UI}
+\begin{itemize}
+  \item Built registration, sign-in, game, and history flows for a scenario-driven trading game with an LLM-backed coach
+  \item Implemented quest and prompt logic, client-side state management, and a mobile-responsive interface
+\end{itemize}
+
+\end{document}
