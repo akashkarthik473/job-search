@@ -1,0 +1,86 @@
+% ---------------------------------------------------------------------------
+% BASE: Embedded / Controls
+%
+% Use for: embedded software, firmware, vehicle controls, automotive software,
+%          motor controls, real-time systems.
+% Leads with: VCU power limiting, fixed-point PI, CAN, PX4 flight control.
+%
+% Do not submit this file directly. Copy it into applications/<year>/<slug>/
+% via scripts/new-application.ps1, then tailor the copy.
+% ---------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+\usepackage{resume}
+
+\begin{document}
+\bodyfont
+
+\resumeheader
+\educationsection
+
+\sectionheader{TECHNICAL SKILLS}
+
+\techline{\textbf{Languages}: C/C++, Python, Assembly, Java}
+\techline{\textbf{Controls}: Fixed-point PI/PID, anti-windup, slew-rate limiting, state estimation, sensor fusion, control-loop tuning}
+\techline{\textbf{Embedded}: TTC 60 VCU, STM32H7, PX4, real-time firmware, CAN, SPI, microcontroller I/O}
+\techline{\textbf{Tools}: TASKING, TTC Downloader, BusMaster, MoTeC i2 Pro, GDB, Git, CSV telemetry}
+
+\sectionheader{EXPERIENCE}
+
+\roleline{Software Lead}{Jun 2026 - Present}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Lead software planning for VCU controls, embedded firmware, telemetry, CAN diagnostics, and validation workflows
+  \item Coordinate priorities and technical reviews across power limiting, launch control, dashboard, simulation, and vehicle testing
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Engineer Intern}{Feb 2026 - Present}
+\orgline{Argus Defense \textbar{} San Jose, CA}
+\begin{itemize}
+  \item Tuned PID flight-control loops on a PX4 flight controller to reduce vertical and horizontal position drift in autonomous flight
+  \item Integrated and tuned visual-inertial odometry for onboard state estimation, improving position-hold accuracy
+  \item Developed and validated embedded flight-control firmware in C on PX4, iterating control gains against logged flight telemetry
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Controls Engineer}{Jul 2025 - Jun 2026}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Designed a lap-adaptive energy-management algorithm that sets a power setpoint from cumulative energy versus budget, with the controller holding actual power within \textbf{0.01\%} of setpoint
+  \item Developed embedded power-limiting firmware with a PI controller on the VCU, maximizing motor output while enforcing FSAE's 80 kW limit
+  \item Built CAN diagnostics firmware for live power and torque frames, status bits, and error counters for real-time BusMaster monitoring
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Intern}{Aug 2024 - Jun 2025}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Built deterministic entry and exit state logic for power limiting from measured power, requested torque, and threshold flags
+  \item Tuned the PI torque controller used for power limiting to within \textbf{2\%} error, smoothing torque transitions to preserve drivability
+  \item \textbf{Results:} 1st in endurance at MIS EV 2025
+\end{itemize}
+
+\sectionheader{PROJECT EXPERIENCE}
+
+\roleline{Formula SAE EV Dashboard}{Feb 2026 - Present}
+\orgline{\spartanracing}
+\techline{C, STM32H7, CAN, SPI}
+\begin{itemize}
+  \item Built a real-time CAN telemetry display for HV voltage, throttle, cell temperature, and power budget on an LCD
+  \item Designed an energy bar and LED alert system giving the driver lap-by-lap feedback on energy budget
+\end{itemize}
+
+\entryspace
+
+\roleline{SR-Wireless-CAN --- Wireless Vehicle Telemetry Platform}{2026}
+\orgline{\spartanracing \textbar{} Backend lead}
+\techline{Python, python-can, FastAPI, WebSockets, SQLite, Docker}
+\begin{itemize}
+  \item Proposed and implemented wireless firmware flashing for the TTC 60 VCU, decoding the flashing sequence from CAN trace captures and reimplementing it in Python over the bus
+  \item Led backend development for the telemetry platform, streaming live CAN signals to a browser dashboard with DBC-driven decoding and recorded-trace replay
+\end{itemize}
+
+\end{document}

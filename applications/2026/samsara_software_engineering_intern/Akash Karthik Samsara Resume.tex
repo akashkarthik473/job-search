@@ -1,0 +1,89 @@
+% ---------------------------------------------------------------------------
+% Samsara - Software Engineering Intern
+% Tailored from bases/software_backend.tex on 2026-08-03
+% Worksheet: notes.md in this folder. Posting: job_description.txt
+%
+% !! NOT ELIGIBLE for the intern req (grad window 2028-2029; you are May 2027).
+%    Built for Samsara new-grad / future openings. See notes.md.
+%
+% !! SR-Wireless-CAN leads the project section and the repo is under a
+%    teammate's account. CONFIRM YOUR SCOPE and narrow the wording before
+%    sending this anywhere.
+%
+% Do NOT put the company name anywhere in the rendered document. It belongs in
+% the filename only.
+% ---------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+\usepackage{resume}
+
+\begin{document}
+\bodyfont
+
+\resumeheader
+\educationsection
+
+\sectionheader{TECHNICAL SKILLS}
+
+\techline{\textbf{Languages}: Python, TypeScript/JavaScript, C/C++, SQL, Java}
+\techline{\textbf{Backend \& Web}: FastAPI, Flask, Node.js/Express, React, REST/JSON, WebSockets, real-time streaming, input validation}
+\techline{\textbf{IoT \& Embedded}: CAN/DBC signal decoding, python-can, STM32H7, TTC 60 VCU, PX4, real-time firmware, vehicle telemetry}
+\techline{\textbf{Data \& DevOps}: SQLite, SQL Server, pandas, NumPy, schema design, Docker, pytest, Jest, GitHub Actions, Git}
+
+\sectionheader{EXPERIENCE}
+
+\roleline{Software Lead}{Jun 2026 - Present}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Lead software planning for Python telemetry tooling, controller validation, CAN diagnostics, and shared testing workflows
+  \item Standardize project requirements, test evidence, and technical reviews across dashboard, simulation, and vehicle software projects
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Engineer Intern}{Feb 2026 - Present}
+\orgline{Argus Defense \textbar{} San Jose, CA}
+\begin{itemize}
+  \item Developed and validated flight-control software in C on PX4, using structured telemetry logs to reproduce issues and evaluate changes
+  \item Integrated visual-inertial odometry and iterated configuration through repeatable tests and documented results
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Controls Engineer}{Jul 2025 - Jun 2026}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Built CAN diagnostics firmware publishing live power and torque frames, status bits, and error counters for real-time bus monitoring
+  \item Developed Python telemetry pipelines to parse vehicle logs, calculate controller response metrics, and generate plots for tuning and validation
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Development Intern}{Sep 2024 - Oct 2024}
+\orgline{Zip Intelligence \textbar{} Tracy, CA}
+\begin{itemize}
+  \item Implemented frontend validation and clearer error states, then paired with engineers to harden REST endpoints for status codes and edge cases
+  \item Added SQL Server update scripts and structured logs to speed reproduction and issue triage
+  \item Took ownership of a small feature from ticket through verified release, shipping via pull requests with setup and change documentation
+\end{itemize}
+
+\sectionheader{PROJECT EXPERIENCE}
+
+\roleline{SR-Wireless-CAN --- Wireless Vehicle Telemetry Platform}{2026}
+\orgline{\spartanracing \textbar{} Backend lead}
+\techline{Python, FastAPI, WebSockets, python-can, React, SQLite, Docker Compose}
+\begin{itemize}
+  \item Led backend development for a wireless vehicle telemetry platform, building a FastAPI and WebSocket service that streams live CAN data to a React dashboard with SQLite persistence
+  \item Proposed and implemented wireless firmware flashing for the vehicle control unit, decoding the undocumented flashing sequence from CAN trace captures and reimplementing it in Python
+  \item Implemented structured DBC upload and merge with automatic conflict resolution, added recorded-trace replay, and containerized the stack with Docker Compose
+\end{itemize}
+
+\entryspace
+
+\roleline{Tickr --- AI-Coached Paper-Trading Game}{2025}
+\techline{TypeScript/JavaScript, React, LLM integration, responsive UI}
+\begin{itemize}
+  \item Built registration, sign-in, game, and history flows for a scenario-driven trading game with an AI coach
+  \item Implemented quest and prompt logic, client-side state management, and a mobile-responsive interface
+\end{itemize}
+
+\end{document}

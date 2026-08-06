@@ -1,0 +1,70 @@
+Haast Autonomous — Summer Engineering Intern (Aircraft Development)
+Location: NOT STATED IN POSTING — find out before applying
+Term: "Summer" — year not stated. Captured 2026-08-03, so likely Summer 2027.
+Pay: not stated
+Captured: 2026-08-03
+
+ABOUT
+
+Haast Autonomous is building an autonomous aircraft network for time-sensitive
+medical logistics. Developing long-range VTOL aircraft, autonomy software, and
+the operational foundation needed to move critical payloads between hospitals,
+labs, and healthcare facilities on-demand, faster and more reliably.
+
+"We're early, small, and moving quickly. Joining now means you'll have a direct
+role in shaping the foundation of Haast — our culture, engineering process,
+testing discipline, partner relationships, and the path from prototype to a real
+medical logistics network."
+
+"We're looking for high-agency people who want ownership, urgency, and
+system-level impact from day one."
+
+ABOUT THE ROLE
+
+Haast is seeking Summer Engineering Interns to join our aircraft development
+team. This is a hands-on opportunity for students eager to work directly with
+autonomous aircraft — not just observe, but actively contribute to real hardware
+and engineering decisions. Interns will collaborate closely with the founding
+engineering team across aircraft design, prototyping, avionics, simulation,
+manufacturing, and flight-testing.
+
+WHAT YOU'LL DO
+
+- Support the design, build, and testing of autonomous aircraft prototypes.
+- Work in one or more key areas: airframe design, mechanical design,
+  prototyping, avionics, controls, simulation, manufacturing, or flight-test
+  support.
+- Build, assemble, modify, and repair aircraft hardware.
+- Create CAD models, test fixtures, documentation, analysis, or simulation tools
+  according to your background.
+- Assist with flight-test preparation, data review, repairs, and design
+  iteration.
+- Work directly with engineers to turn test results into tangible improvements.
+- Own a meaningful project that directly contributes to our aircraft development
+  program.
+
+YOU MAY BE A FIT IF YOU ARE
+
+- Pursuing a degree in aerospace, mechanical, electrical, robotics, computer
+  engineering, computer science, or a related technical field.
+- Excited about aircraft, drones, autonomy, hardware, or medical logistics.
+- Hands-on and willing to work in a shop, hangar, or field-test environment.
+- Comfortable learning quickly and navigating ambiguity.
+- Practical, self-directed, and ready to take ownership.
+- Eager to work in an early-stage startup where priorities shift quickly and the
+  work is meaningful.
+
+NICE TO HAVE
+
+- Experience with CAD, 3D printing, drones, aircraft, robotics, controls,
+  simulation, electronics, or manufacturing.
+- Participation in student projects like rocketry, FORMULA SAE, robotics, UAV
+  teams, design teams, research labs, or personal hardware projects.
+- Familiarity with Python, MATLAB, SolidWorks, ArduPilot, PX4, electronics,
+  composites, or flight testing.
+- Experience building something that had to actually work in the real world.
+
+"We care more about agency, ownership, taste, and evidence that you can build
+than whether you match every bullet point. If you have worked on aircraft,
+drones, robots, vehicles, rockets, or other hard technical systems and want to
+help build something from the ground up, we want to hear from you."

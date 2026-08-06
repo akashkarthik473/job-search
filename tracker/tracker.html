@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Application Tracker</title>
+<style>
+  :root {
+    --bg: #ffffff; --panel: #f7f7f8; --panel-2: #efeff1; --text: #1b1b1f;
+    --muted: #6b6b76; --border: #e0e0e4; --accent: #3b5bdb; --accent-fg: #fff;
+    --danger: #c92a2a; --ok: #2b8a3e; --warn: #e67700; --shadow: rgba(0,0,0,.07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17171a; --panel: #1e1e22; --panel-2: #26262b; --text: #e9e9ec;
+      --muted: #9a9aa5; --border: #33333a; --accent: #5c7cfa; --accent-fg: #fff;
+      --danger: #ff6b6b; --ok: #51cf66; --warn: #ffa94d; --shadow: rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #ffffff; --panel: #f7f7f8; --panel-2: #efeff1; --text: #1b1b1f;
+    --muted: #6b6b76; --border: #e0e0e4; --accent: #3b5bdb; --accent-fg: #fff;
+    --danger: #c92a2a; --ok: #2b8a3e; --warn: #e67700; --shadow: rgba(0,0,0,.07);
+  }
+  :root[data-theme="dark"] {
+    --bg: #17171a; --panel: #1e1e22; --panel-2: #26262b; --text: #e9e9ec;
+    --muted: #9a9aa5; --border: #33333a; --accent: #5c7cfa; --accent-fg: #fff;
+    --danger: #ff6b6b; --ok: #51cf66; --warn: #ffa94d; --shadow: rgba(0,0,0,.4);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .wrap { max-width: 1500px; margin: 0 auto; padding: 20px 18px 80px; }
+
+  header { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 4px; }
+  h1 { font-size: 20px; margin: 0; letter-spacing: -.01em; }
+  .file-state { color: var(--muted); font-size: 12.5px; }
+  .file-state.dirty { color: var(--warn); font-weight: 600; }
+
+  .bar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 14px 0; }
+  button {
+    font: inherit; padding: 7px 13px; border-radius: 7px; border: 1px solid var(--border);
+    background: var(--panel); color: var(--text); cursor: pointer;
+  }
+  button:hover { background: var(--panel-2); }
+  button.primary { background: var(--accent); color: var(--accent-fg); border-color: transparent; }
+  button.primary:hover { filter: brightness(1.08); }
+  button:disabled { opacity: .45; cursor: not-allowed; }
+  button.tiny { padding: 3px 8px; font-size: 12px; border-radius: 5px; }
+
+  input, select, textarea {
+    font: inherit; color: var(--text); background: var(--bg);
+    border: 1px solid var(--border); border-radius: 6px; padding: 5px 7px; width: 100%;
+  }
+  input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+  input.bare { border-color: transparent; background: transparent; padding: 5px 6px; }
+  input.bare:hover { border-color: var(--border); }
+
+  .stats { display: flex; gap: 7px; flex-wrap: wrap; margin: 10px 0 16px; }
+  .stat {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 999px;
+    padding: 4px 12px; font-size: 12.5px; color: var(--muted);
+  }
+  .stat b { color: var(--text); font-variant-numeric: tabular-nums; }
+
+  .tablewrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 1px 3px var(--shadow); }
+  table { border-collapse: collapse; width: 100%; min-width: 1080px; }
+  th {
+    text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .05em;
+    color: var(--muted); font-weight: 600; padding: 9px 8px; background: var(--panel);
+    border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 2; white-space: nowrap;
+  }
+  th.sortable { cursor: pointer; user-select: none; }
+  th.sortable:hover { color: var(--text); }
+  td { padding: 3px 5px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  tr.row:hover > td { background: var(--panel); }
+  tr.overdue td.followup { background: color-mix(in srgb, var(--warn) 18%, transparent); border-radius: 5px; }
+
+  .status-sel { border: none; border-radius: 999px; padding: 4px 9px; font-size: 12.5px; font-weight: 600; cursor: pointer; -webkit-appearance: none; appearance: none; text-align: center; }
+  .st-saved     { background: color-mix(in srgb, var(--muted) 22%, transparent); color: var(--text); }
+  .st-ready     { background: color-mix(in srgb, var(--accent) 26%, transparent); color: var(--text); }
+  .st-applied   { background: color-mix(in srgb, var(--accent) 45%, transparent); color: var(--text); }
+  .st-screen    { background: color-mix(in srgb, #9775fa 38%, transparent); color: var(--text); }
+  .st-interview { background: color-mix(in srgb, var(--warn) 40%, transparent); color: var(--text); }
+  .st-offer     { background: color-mix(in srgb, var(--ok) 40%, transparent); color: var(--text); }
+  .st-rejected  { background: color-mix(in srgb, var(--danger) 30%, transparent); color: var(--text); }
+  .st-dead      { background: color-mix(in srgb, var(--muted) 18%, transparent); color: var(--muted); }
+
+  .pri { width: 54px; text-align: center; font-weight: 700; }
+  .pri-A { color: var(--danger); }
+  .pri-B { color: var(--warn); }
+  .pri-C { color: var(--muted); }
+
+  td.actions { white-space: nowrap; }
+  .detail td { background: var(--panel); padding: 12px 16px 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px 14px; }
+  .field label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin-bottom: 3px; }
+  .field.wide { grid-column: 1 / -1; }
+  textarea { min-height: 56px; resize: vertical; }
+
+  .empty { padding: 48px 20px; text-align: center; color: var(--muted); }
+  .hint { color: var(--muted); font-size: 12.5px; margin-top: 10px; }
+  code { background: var(--panel-2); padding: 1px 5px; border-radius: 4px; font-size: 12.5px; }
+  .banner {
+    background: color-mix(in srgb, var(--warn) 15%, transparent);
+    border: 1px solid color-mix(in srgb, var(--warn) 40%, transparent);
+    border-radius: 8px; padding: 11px 14px; margin-bottom: 14px; font-size: 13px;
+  }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Application Tracker</h1>
+    <span class="file-state" id="fileState">no file open</span>
+  </header>
+
+  <div id="fsWarn" class="banner" hidden>
+    This browser can't write files directly. You can still load a CSV and edit it,
+    but saving will download a copy you'd have to move back into <code>tracker/</code>.
+    Chrome or Edge give you in-place saving.
+  </div>
+
+  <div class="bar">
+    <button class="primary" id="btnOpen">Open applications.csv</button>
+    <button id="btnSave" disabled>Save</button>
+    <button id="btnAdd" disabled>+ Add application</button>
+    <span style="flex:1"></span>
+    <input id="search" placeholder="Search…" style="width:190px" autocomplete="off">
+    <select id="filterStatus" style="width:150px"><option value="">All statuses</option></select>
+    <button class="tiny" id="btnTheme" title="Toggle light/dark">◐</button>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:34px"></th>
+          <th class="sortable" data-sort="company">Company</th>
+          <th class="sortable" data-sort="position">Position</th>
+          <th class="sortable" data-sort="priority" style="width:64px">Pri</th>
+          <th class="sortable" data-sort="status" style="width:132px">Status</th>
+          <th style="width:120px">Applied</th>
+          <th class="sortable" data-sort="follow_up_date" style="width:120px">Follow up</th>
+          <th>Next action</th>
+          <th style="width:96px"></th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <div id="empty" class="empty">
+    Open <code>tracker/applications.csv</code> to start.
+    <div class="hint">Edits save back to that exact file, so git still sees every change.</div>
+  </div>
+
+  <p class="hint">
+    <b>Applied</b> stamps today's date, flips status to <i>applied</i>, and sets a
+    follow-up for one week out. Click a row's <b>▸</b> to edit the rest of the fields.
+    Changes autosave about a second after you stop typing.
+  </p>
+
+</div>
+
+<script>
+"use strict";
+
+/* ---------- columns: must match applications.csv exactly ---------- */
+const COLUMNS = ["company","position","job_id","job_url","date_posted","date_applied",
+  "role_family","priority","resume_used","referral_contact","status","next_action",
+  "follow_up_date","notes"];
+
+const STATUSES = ["saved","resume ready","applied","phone screen","interview","offer",
+  "rejected","withdrawn","ghosted"];
+
+const STATUS_CLASS = {
+  "saved":"st-saved", "resume ready":"st-ready", "applied":"st-applied",
+  "phone screen":"st-screen", "interview":"st-interview", "offer":"st-offer",
+  "rejected":"st-rejected", "withdrawn":"st-dead", "ghosted":"st-dead"
+};
+
+/* ---------- CSV: RFC-4180-ish parse/serialize (quotes, commas, newlines) ---------- */
+function parseCSV(text) {
+  text = text.replace(/^﻿/, "").replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+  const rows = []; let row = []; let field = ""; let inQ = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (inQ) {
+      if (c === '"') {
+        if (text[i+1] === '"') { field += '"'; i++; }
+        else inQ = false;
+      } else field += c;
+    } else {
+      if (c === '"') inQ = true;
+      else if (c === ",") { row.push(field); field = ""; }
+      else if (c === "\n") { row.push(field); rows.push(row); row = []; field = ""; }
+      else field += c;
+    }
+  }
+  if (field !== "" || row.length) { row.push(field); rows.push(row); }
+  return rows.filter(r => r.some(v => v !== ""));
+}
+
+function toCSV(records) {
+  const esc = v => {
+    v = (v ?? "").toString();
+    return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+  };
+  const lines = [COLUMNS.join(",")];
+  for (const r of records) lines.push(COLUMNS.map(c => esc(r[c])).join(","));
+  return lines.join("\n") + "\n";
+}
+
+/* ---------- state ---------- */
+let data = [];              // array of objects keyed by COLUMNS
+let fileHandle = null;
+let dirty = false;
+let sortKey = null, sortDir = 1;
+const expanded = new Set();
+let saveTimer = null;
+
+const $ = id => document.getElementById(id);
+const today = () => new Date().toLocaleDateString("en-CA");   // YYYY-MM-DD, local time
+const addDays = (n) => {
+  const d = new Date(); d.setDate(d.getDate() + n);
+  return d.toLocaleDateString("en-CA");
+};
+
+/* ---------- persist the file handle so you don't re-pick every time ---------- */
+const IDB = "tracker-db", STORE = "handles";
+function idb() {
+  return new Promise((res, rej) => {
+    const r = indexedDB.open(IDB, 1);
+    r.onupgradeneeded = () => r.result.createObjectStore(STORE);
+    r.onsuccess = () => res(r.result);
+    r.onerror = () => rej(r.error);
+  });
+}
+async function saveHandle(h) {
+  try { const db = await idb(); db.transaction(STORE, "readwrite").objectStore(STORE).put(h, "csv"); } catch {}
+}
+async function loadHandle() {
+  try {
+    const db = await idb();
+    return await new Promise(res => {
+      const rq = db.transaction(STORE, "readonly").objectStore(STORE).get("csv");
+      rq.onsuccess = () => res(rq.result || null);
+      rq.onerror = () => res(null);
+    });
+  } catch { return null; }
+}
+
+/* ---------- file I/O ----------
+ * Two modes:
+ *   SERVER  - page came from tracker-server.mjs; read/write via /api/csv.
+ *             Works in every browser. This is the normal path.
+ *   FILE    - page opened straight off disk; fall back to the File System
+ *             Access API. Blocked inside VS Code's Simple Browser, so we
+ *             tell the user to use the server instead.
+ */
+const SERVER = location.protocol === "http:" || location.protocol === "https:";
+const hasFS = typeof window.showOpenFilePicker === "function";
+if (!SERVER) {
+  $("fsWarn").hidden = false;
+  $("fsWarn").innerHTML = hasFS
+    ? 'Opened as a local file. Saving may be blocked here (VS Code\'s built-in browser blocks it entirely). ' +
+      'For reliable saving, close this tab and double-click <code>Open Tracker.cmd</code> in the repo root.'
+    : 'This browser can\'t write files directly. Double-click <code>Open Tracker.cmd</code> in the repo root ' +
+      'instead — it serves this page locally and saves straight to the CSV.';
+}
+
+async function loadFromServer() {
+  try {
+    const r = await fetch("/api/csv", { cache: "no-store" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    loadText(await r.text(), "applications.csv");
+  } catch (e) {
+    setFileState("could not load: " + e.message, true);
+  }
+}
+
+async function openFile() {
+  if (SERVER) {
+    if (dirty && !confirm("Discard unsaved changes and reload from disk?")) return;
+    return loadFromServer();
+  }
+  if (hasFS) {
+    try {
+      const [h] = await window.showOpenFilePicker({
+        types: [{ description: "CSV", accept: { "text/csv": [".csv"] } }],
+        multiple: false
+      });
+      fileHandle = h;
+      await saveHandle(h);
+      await readHandle();
+    } catch (e) { if (e.name !== "AbortError") alert("Could not open: " + e.message); }
+  } else {
+    const inp = document.createElement("input");
+    inp.type = "file"; inp.accept = ".csv,text/csv";
+    inp.onchange = async () => {
+      if (!inp.files[0]) return;
+      loadText(await inp.files[0].text(), inp.files[0].name);
+    };
+    inp.click();
+  }
+}
+
+async function readHandle() {
+  const f = await fileHandle.getFile();
+  loadText(await f.text(), f.name);
+}
+
+function loadText(text, name) {
+  const rows = parseCSV(text);
+  if (!rows.length) { alert("That file is empty."); return; }
+  const header = rows[0].map(h => h.trim());
+  data = rows.slice(1).map(r => {
+    const o = {};
+    COLUMNS.forEach(c => {
+      const i = header.indexOf(c);
+      o[c] = i >= 0 ? (r[i] ?? "") : "";
+    });
+    return o;
+  });
+  dirty = false;
+  $("btnSave").disabled = false;
+  $("btnAdd").disabled = false;
+  setFileState(name + " — " + data.length + " application" + (data.length === 1 ? "" : "s"));
+  render();
+}
+
+function setFileState(msg, isDirty) {
+  const el = $("fileState");
+  el.textContent = msg;
+  el.classList.toggle("dirty", !!isDirty);
+}
+
+function markDirty() {
+  dirty = true;
+  setFileState("unsaved changes…", true);
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(save, 1000);
+  renderStats();
+}
+
+async function save() {
+  if (!data.length && !fileHandle && !SERVER) return;
+  const text = toCSV(data);
+
+  if (SERVER) {
+    try {
+      const r = await fetch("/api/csv", {
+        method: "PUT",
+        headers: { "content-type": "text/plain; charset=utf-8" },
+        body: text
+      });
+      if (!r.ok) throw new Error(await r.text());
+      dirty = false;
+      setFileState("saved " + new Date().toLocaleTimeString());
+    } catch (e) {
+      setFileState("save failed: " + e.message, true);
+    }
+    return;
+  }
+
+  if (fileHandle) {
+    try {
+      const perm = await fileHandle.queryPermission({ mode: "readwrite" });
+      if (perm !== "granted") {
+        const req = await fileHandle.requestPermission({ mode: "readwrite" });
+        if (req !== "granted") { setFileState("permission denied — click Save", true); return; }
+      }
+      const w = await fileHandle.createWritable();
+      await w.write(text);
+      await w.close();
+      dirty = false;
+      setFileState("saved " + new Date().toLocaleTimeString());
+    } catch (e) {
+      setFileState("save failed: " + e.message, true);
+    }
+  } else {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([text], { type: "text/csv" }));
+    a.download = "applications.csv";
+    a.click();
+    URL.revokeObjectURL(a.href);
+    dirty = false;
+    setFileState("downloaded — move it into tracker/");
+  }
+}
+
+/* ---------- rendering ---------- */
+function visibleRows() {
+  const q = $("search").value.trim().toLowerCase();
+  const fs = $("filterStatus").value;
+  let out = data.map((r, i) => ({ r, i }));
+  if (q) out = out.filter(({ r }) => COLUMNS.some(c => (r[c] || "").toLowerCase().includes(q)));
+  if (fs) out = out.filter(({ r }) => (r.status || "") === fs);
+  if (sortKey) {
+    out.sort((a, b) => {
+      const x = (a.r[sortKey] || "").toLowerCase(), y = (b.r[sortKey] || "").toLowerCase();
+      if (x === y) return 0;
+      if (x === "") return 1;          // blanks last regardless of direction
+      if (y === "") return -1;
+      return x < y ? -sortDir : sortDir;
+    });
+  }
+  return out;
+}
+
+function statusClass(s) { return STATUS_CLASS[s] || "st-saved"; }
+
+function render() {
+  const tb = $("tbody");
+  tb.textContent = "";
+  const rows = visibleRows();
+  $("empty").hidden = data.length > 0;
+
+  // keep the status filter's options in sync with whatever is actually in use
+  const sel = $("filterStatus"), keep = sel.value;
+  sel.textContent = "";
+  const all = new Set([...STATUSES, ...data.map(r => r.status).filter(Boolean)]);
+  sel.appendChild(new Option("All statuses", ""));
+  [...all].forEach(s => sel.appendChild(new Option(s, s)));
+  sel.value = keep;
+
+  for (const { r, i } of rows) {
+    const tr = document.createElement("tr");
+    tr.className = "row";
+    if (r.follow_up_date && r.follow_up_date < today() &&
+        !["offer","rejected","withdrawn","ghosted"].includes(r.status)) {
+      tr.classList.add("overdue");
+    }
+
+    tr.appendChild(cell(expandBtn(i)));
+    tr.appendChild(cell(textInput(i, "company")));
+    tr.appendChild(cell(textInput(i, "position")));
+    tr.appendChild(cell(priSelect(i)));
+    tr.appendChild(cell(statusSelect(i)));
+    tr.appendChild(cell(dateInput(i, "date_applied")));
+    const fu = cell(dateInput(i, "follow_up_date")); fu.className = "followup";
+    tr.appendChild(fu);
+    tr.appendChild(cell(textInput(i, "next_action")));
+    tr.appendChild(cell(rowActions(i), "actions"));
+    tb.appendChild(tr);
+
+    if (expanded.has(i)) tb.appendChild(detailRow(i));
+  }
+  renderStats();
+}
+
+function cell(node, cls) {
+  const td = document.createElement("td");
+  if (cls) td.className = cls;
+  td.appendChild(node);
+  return td;
+}
+
+function bind(el, i, field) {
+  el.addEventListener("input", () => { data[i][field] = el.value; markDirty(); });
+  el.addEventListener("change", () => { data[i][field] = el.value; markDirty(); });
+  return el;
+}
+
+function textInput(i, field) {
+  const el = document.createElement("input");
+  el.className = "bare"; el.value = data[i][field] || ""; el.autocomplete = "off";
+  return bind(el, i, field);
+}
+
+function dateInput(i, field) {
+  const el = document.createElement("input");
+  el.type = "date"; el.className = "bare"; el.value = data[i][field] || "";
+  return bind(el, i, field);
+}
+
+function priSelect(i) {
+  const el = document.createElement("select");
+  el.className = "status-sel pri pri-" + (data[i].priority || "C");
+  ["A","B","C",""].forEach(p => el.appendChild(new Option(p || "–", p)));
+  el.value = data[i].priority || "";
+  el.addEventListener("change", () => {
+    data[i].priority = el.value;
+    el.className = "status-sel pri pri-" + (el.value || "C");
+    markDirty();
+  });
+  return el;
+}
+
+function statusSelect(i) {
+  const el = document.createElement("select");
+  el.className = "status-sel " + statusClass(data[i].status);
+  const cur = data[i].status || "";
+  const opts = [...new Set([...STATUSES, cur].filter(Boolean))];
+  opts.forEach(s => el.appendChild(new Option(s, s)));
+  if (!cur) el.appendChild(new Option("—", ""));
+  el.value = cur;
+  el.addEventListener("change", () => {
+    data[i].status = el.value;
+    el.className = "status-sel " + statusClass(el.value);
+    markDirty();
+  });
+  return el;
+}
+
+function expandBtn(i) {
+  const b = document.createElement("button");
+  b.className = "tiny"; b.textContent = expanded.has(i) ? "▾" : "▸";
+  b.title = "Show all fields";
+  b.onclick = () => { expanded.has(i) ? expanded.delete(i) : expanded.add(i); render(); };
+  return b;
+}
+
+function rowActions(i) {
+  const frag = document.createDocumentFragment();
+
+  const applied = document.createElement("button");
+  applied.className = "tiny primary"; applied.textContent = "Applied";
+  applied.title = "Stamp today, set status to applied, follow up in a week";
+  applied.onclick = () => {
+    data[i].date_applied = today();
+    data[i].status = "applied";
+    if (!data[i].follow_up_date) data[i].follow_up_date = addDays(7);
+    if (!data[i].next_action || /^(tailor|submit|apply)/i.test(data[i].next_action)) {
+      data[i].next_action = "follow up";
+    }
+    markDirty();
+    render();
+  };
+  frag.appendChild(applied);
+
+  const del = document.createElement("button");
+  del.className = "tiny"; del.textContent = "✕"; del.title = "Delete row";
+  del.style.marginLeft = "4px";
+  del.onclick = () => {
+    if (!confirm("Delete " + (data[i].company || "this row") + "?")) return;
+    data.splice(i, 1); expanded.clear(); markDirty(); render();
+  };
+  frag.appendChild(del);
+
+  const wrapper = document.createElement("div");
+  wrapper.appendChild(frag);
+  return wrapper;
+}
+
+function detailRow(i) {
+  const tr = document.createElement("tr");
+  tr.className = "detail";
+  const td = document.createElement("td");
+  td.colSpan = 9;
+  const grid = document.createElement("div");
+  grid.className = "grid";
+
+  const fields = [
+    ["job_id","Job ID"], ["job_url","Job URL"], ["date_posted","Date posted"],
+    ["role_family","Role family"], ["resume_used","Resume used"],
+    ["referral_contact","Referral / contact"]
+  ];
+  for (const [key, label] of fields) {
+    const d = document.createElement("div"); d.className = "field";
+    const l = document.createElement("label"); l.textContent = label;
+    d.appendChild(l);
+    const el = document.createElement("input");
+    el.value = data[i][key] || ""; el.autocomplete = "off";
+    if (key === "date_posted") el.type = "date";
+    d.appendChild(bind(el, i, key));
+    if (key === "job_url" && data[i].job_url) {
+      const a = document.createElement("a");
+      a.href = data[i].job_url; a.target = "_blank"; a.rel = "noopener";
+      a.textContent = "open posting ↗"; a.style.fontSize = "12px";
+      d.appendChild(a);
+    }
+    grid.appendChild(d);
+  }
+
+  const nd = document.createElement("div"); nd.className = "field wide";
+  const nl = document.createElement("label"); nl.textContent = "Notes";
+  nd.appendChild(nl);
+  const ta = document.createElement("textarea");
+  ta.value = data[i].notes || "";
+  nd.appendChild(bind(ta, i, "notes"));
+  grid.appendChild(nd);
+
+  td.appendChild(grid);
+  tr.appendChild(td);
+  return tr;
+}
+
+function renderStats() {
+  const box = $("stats");
+  box.textContent = "";
+  if (!data.length) return;
+  const counts = {};
+  for (const r of data) counts[r.status || "—"] = (counts[r.status || "—"] || 0) + 1;
+
+  const overdue = data.filter(r =>
+    r.follow_up_date && r.follow_up_date < today() &&
+    !["offer","rejected","withdrawn","ghosted"].includes(r.status)).length;
+
+  const chip = (label, n) => {
+    const s = document.createElement("span");
+    s.className = "stat";
+    s.appendChild(document.createTextNode(label + " "));
+    const b = document.createElement("b"); b.textContent = n;
+    s.appendChild(b);
+    return s;
+  };
+  box.appendChild(chip("total", data.length));
+  Object.entries(counts).sort((a,b) => b[1]-a[1]).forEach(([k,v]) => box.appendChild(chip(k, v)));
+  if (overdue) {
+    const s = chip("follow-up overdue", overdue);
+    s.style.borderColor = "var(--warn)"; s.style.color = "var(--warn)";
+    box.appendChild(s);
+  }
+}
+
+/* ---------- wiring ---------- */
+$("btnOpen").onclick = openFile;
+$("btnSave").onclick = () => { clearTimeout(saveTimer); save(); };
+$("btnAdd").onclick = () => {
+  const row = {}; COLUMNS.forEach(c => row[c] = "");
+  row.status = "saved"; row.priority = "B"; row.next_action = "tailor resume and apply";
+  data.unshift(row);
+  expanded.clear();
+  markDirty(); render();
+  const first = $("tbody").querySelector("input.bare");
+  if (first) first.focus();
+};
+$("search").addEventListener("input", () => { expanded.clear(); render(); });
+$("filterStatus").addEventListener("change", () => { expanded.clear(); render(); });
+
+document.querySelectorAll("th.sortable").forEach(th => {
+  th.onclick = () => {
+    const k = th.dataset.sort;
+    if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = 1; }
+    document.querySelectorAll("th.sortable").forEach(h => {
+      h.textContent = h.textContent.replace(/ [↑↓]$/, "");
+    });
+    th.textContent += sortDir === 1 ? " ↑" : " ↓";
+    expanded.clear(); render();
+  };
+});
+
+$("btnTheme").onclick = () => {
+  const cur = document.documentElement.getAttribute("data-theme");
+  const next = cur === "dark" ? "light" : cur === "light" ? "" : "dark";
+  if (next) document.documentElement.setAttribute("data-theme", next);
+  else document.documentElement.removeAttribute("data-theme");
+};
+
+window.addEventListener("keydown", e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === "s") { e.preventDefault(); clearTimeout(saveTimer); save(); }
+});
+window.addEventListener("beforeunload", e => {
+  if (dirty) { e.preventDefault(); e.returnValue = ""; }
+});
+
+/* startup */
+(async () => {
+  if (SERVER) {
+    $("btnOpen").textContent = "Reload from disk";
+    $("btnOpen").classList.remove("primary");
+    await loadFromServer();
+    return;
+  }
+  if (!hasFS) return;
+  const h = await loadHandle();
+  if (!h) return;
+  try {
+    if (await h.queryPermission({ mode: "readwrite" }) === "granted") {
+      fileHandle = h; await readHandle();
+    } else {
+      setFileState("last file remembered — click Open to reconnect");
+    }
+  } catch {}
+})();
+</script>
+</body>
+</html>

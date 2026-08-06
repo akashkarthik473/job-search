@@ -1,0 +1,87 @@
+Samsara (NYSE: IOT) — Software Engineering Intern
+Location: HYBRID, 3 days/week in San Francisco, CA office. Relocation available.
+Pay: $61.90/hr (flat)
+Applications close: November 26, 11:59pm ET. Cohort finalized late Nov / early Dec.
+Captured: 2026-08-03
+
+*** ELIGIBILITY BLOCKER — SEE notes.md ***
+Requires graduation between Spring/Summer/Fall 2028 or Winter 2029.
+Akash graduates May 2027. Does not qualify for this posting.
+
+ABOUT SAMSARA
+
+Samsara is the pioneer of the Connected Operations(TM) Cloud, a platform that
+enables organizations that depend on physical operations to harness Internet of
+Things (IoT) data to develop actionable insights and improve their operations.
+Industries served: agriculture, construction, field services, transportation,
+manufacturing — more than 40% of global GDP.
+
+Product areas: Video-Based Safety, Vehicle Telematics, Apps and Driver
+Workflows, Equipment Monitoring.
+
+ABOUT THE ROLE
+
+Interns work across a range of engineering challenges depending on team:
+
+- Backend infrastructure powering the IoT platform; scaling data ingestion and
+  storage systems supporting over 15,000 hardware assets and tens of thousands
+  of customers worldwide.
+- Full stack: intuitive user experiences that turn data into actionable
+  insights, partnering with product and design to iterate rapidly.
+- Mobile: infrastructure behind the React Native app, enabling feature teams to
+  build performant, maintainable products.
+- Embedded software: software running directly on Samsara hardware — edge AI,
+  multimedia frameworks, power management, and real-time data processing in
+  demanding real-world environments.
+
+Throughout the interview process they dig into past experience, what you want to
+learn next, and where you'd best fit across engineering teams.
+
+STACK
+
+Golang for backend, TypeScript and React for web client, GraphQL for data
+access, React Native for mobile. "Direct experience with this exact stack is not
+required, but experience with similar technologies is strongly encouraged."
+
+YOU SHOULD APPLY IF...
+
+- You want to impact the industries that run our world.
+- You want to build for scale.
+- You believe customers are more than a number — engineers visit customers in
+  person, participate in customer interviews, use metrics to verify outcomes.
+- You're curious and self-driven — hackathons, side projects, tearing apart how
+  something works just because you want to understand it.
+- You're drawn to hard problems and own them end to end.
+- You're AI-forward — you've woven AI into how you work: accelerating debugging,
+  drafting code, exploring unfamiliar problem spaces faster.
+- You're a collaborator.
+
+MINIMUM REQUIREMENTS
+
+- Currently a junior-year student on track to complete a Bachelor's degree in
+  Computer Science, Mathematics, Software Engineering, Physics, or Data Science
+  between Spring/Summer/Fall 2028 or Winter 2029.      <<< BLOCKER
+- Hybrid: 3 days per week in the San Francisco office. Relocation assistance
+  available.
+- Full-time paid experience — interns are expected NOT to be enrolled in school
+  full-time while working at Samsara.
+
+IN YOUR APPLICATION
+
+- Include your resume
+- Answer all of the application questions
+- Rolling review; applications close November 26th at 11:59pm ET.
+- Do not email to inquire about application status.
+
+COMPENSATION
+
+Hourly base salary: $61.90—$61.90 USD. Total rewards include performance-based
+bonus/variable pay and equity for eligible roles, flexible employee-led remote
+model, professional development stipend, health and parental leave plans.
+
+BELONGING AT SAMSARA
+
+All qualified applicants receive consideration without regard to race, color,
+religion, national origin, sex, gender, gender identity, sexual orientation,
+protected veteran status, disability, age, and other characteristics protected
+by law.

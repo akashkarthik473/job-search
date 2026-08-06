@@ -1,0 +1,89 @@
+% ---------------------------------------------------------------------------
+% Western Digital - Firmware Engineering Intern (umbrella early-career req)
+% Tailored from bases/embedded_controls.tex on 2026-08-03
+% Worksheet: notes.md in this folder. Posting: job_description.txt
+%
+% Light touch on purpose - this is a pipeline req covering five tracks, so it
+% does not earn deep tailoring. Fixed-point PI promoted to lead; assembly kept
+% prominent (they name it); STM32H7/SPI dashboard kept as the clearest
+% firmware-touching-hardware evidence.
+%
+% Do NOT put the company name anywhere in the rendered document. It belongs in
+% the filename only.
+% ---------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+\usepackage{resume}
+
+\begin{document}
+\bodyfont
+
+\resumeheader
+\educationsection
+
+\sectionheader{TECHNICAL SKILLS}
+
+\techline{\textbf{Languages}: C, C++, Assembly, Python, Java}
+\techline{\textbf{Embedded \& Firmware}: TTC 60 VCU, STM32H7, PX4, real-time firmware, fixed-point arithmetic, deterministic execution, CAN, SPI, microcontroller I/O}
+\techline{\textbf{Controls \& Algorithms}: Fixed-point PI/PID, anti-windup, saturation, slew-rate limiting, state estimation, sensor fusion}
+\techline{\textbf{Test \& Tools}: Software-in-the-loop replay, regression tests, pytest, GDB, TASKING, TTC Downloader, BusMaster, MoTeC i2 Pro, Git}
+
+\sectionheader{EXPERIENCE}
+
+\roleline{Software Lead}{Jun 2026 - Present}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Lead software planning for VCU controls, embedded firmware, telemetry, CAN diagnostics, and validation workflows
+  \item Coordinate priorities and technical reviews across power limiting, launch control, dashboard, simulation, and vehicle testing
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Engineer Intern}{Feb 2026 - Present}
+\orgline{Argus Defense \textbar{} San Jose, CA}
+\begin{itemize}
+  \item Developed and validated embedded flight-control firmware in C on PX4, iterating control gains against logged flight telemetry
+  \item Integrated and tuned visual-inertial odometry for onboard state estimation, improving position-hold accuracy
+  \item Tuned PID flight-control loops to reduce vertical and horizontal position drift in autonomous flight
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Controls Engineer}{Jul 2025 - Jun 2026}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Implemented a torque-to-power controller in C with fixed-point PI control, saturation, anti-windup, and slew limits for deterministic TTC 60 VCU execution
+  \item Built CAN diagnostics firmware for live power and torque frames, status bits, and error counters, debugging bus behavior against real-time BusMaster captures
+  \item Designed a lap-adaptive energy-management algorithm setting a power setpoint from cumulative energy versus budget, holding actual power within \textbf{0.01\%} of setpoint
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Intern}{Aug 2024 - Jun 2025}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Built deterministic entry and exit state logic for power limiting from measured power, requested torque, and threshold flags
+  \item Tuned the PI torque controller used for power limiting to within \textbf{2\%} error, smoothing torque transitions to preserve drivability
+  \item \textbf{Results:} 1st in endurance at MIS EV 2025
+\end{itemize}
+
+\sectionheader{PROJECT EXPERIENCE}
+
+\roleline{Formula SAE EV Dashboard}{Feb 2026 - Present}
+\orgline{\spartanracing}
+\techline{C, STM32H7, CAN, SPI}
+\begin{itemize}
+  \item Built a real-time CAN telemetry display on an STM32H7 driving an LCD over SPI, decoding HV voltage, throttle, cell temperature, and power budget
+  \item Designed an energy bar and LED alert system giving the driver lap-by-lap feedback on energy budget
+\end{itemize}
+
+\entryspace
+
+\roleline{SR-Wireless-CAN --- Wireless Firmware Flashing \& Telemetry}{2026}
+\orgline{\spartanracing \textbar{} Backend lead}
+\techline{Python, python-can, CAN trace analysis, FastAPI, WebSockets, SQLite, Docker}
+\begin{itemize}
+  \item Proposed and implemented wireless firmware flashing for the TTC 60 VCU, decoding the undocumented flashing sequence from CAN trace captures and reimplementing it in Python over the bus
+  \item Led backend development for the telemetry platform, streaming live CAN signals to a browser dashboard with DBC-driven decoding and recorded-trace replay
+\end{itemize}
+
+\end{document}

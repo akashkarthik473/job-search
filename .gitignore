@@ -1,0 +1,33 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.toc
+*.bbl
+*.blg
+*.nav
+*.snm
+*.vrb
+*.xdv
+
+# Base and master PDFs are regenerable from .tex -- don't version them.
+bases/*.pdf
+master/*.pdf
+archive/*.pdf
+
+# Submitted application PDFs ARE versioned on purpose: they are the exact
+# artifact a company received. Nothing here excludes applications/**/*.pdf.
+
+# Tracker server's one-deep undo copy
+tracker/.applications.csv.bak
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+
+# Installers and binaries have no business in this repo
+*.exe
+*.msi

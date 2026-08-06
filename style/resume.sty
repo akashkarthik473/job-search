@@ -1,0 +1,101 @@
+% ---------------------------------------------------------------------------
+% resume.sty - shared layout for every resume in this repo.
+%
+% Edit formatting, contact info, or education HERE and every base resume and
+% every tailored application picks it up. Do not copy this preamble into
+% individual .tex files.
+%
+% Compile with XeLaTeX or LuaLaTeX (fontspec).
+% ---------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{resume}[2026/08/03 Akash Karthik resume layout]
+
+\RequirePackage[margin=0.58in,top=0.40in,bottom=0.40in]{geometry}
+\RequirePackage{fontspec}
+\RequirePackage[hidelinks]{hyperref}
+\RequirePackage{enumitem}
+\RequirePackage{array}
+
+\IfFontExistsTF{Calibri}{\setmainfont{Calibri}}{\setmainfont{Carlito}}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{0pt}
+\renewcommand{\arraystretch}{1.0}
+
+\newcommand{\bodyfont}{\fontsize{10}{11.1}\selectfont}
+
+\setlist[itemize]{
+  leftmargin=1.25em,
+  label=\raisebox{0.10ex}{\small\textbullet},
+  topsep=2pt,
+  itemsep=1pt,
+  parsep=0pt,
+  partopsep=0pt,
+  after=\vspace{4pt}
+}
+
+\newcommand{\name}[1]{%
+  \begin{center}
+    {\fontsize{16.5}{17.5}\selectfont\textbf{#1}}
+  \end{center}
+  \vspace{-4pt}
+}
+
+\newcommand{\contact}[1]{%
+  \begin{center}
+    {\fontsize{9.6}{10.6}\selectfont #1}
+  \end{center}
+  \vspace{5pt}
+}
+
+% Section divider: line above the section, not under it.
+\newcommand{\sectionheader}[1]{%
+  \vspace{4pt}
+  \noindent\rule{\textwidth}{0.35pt}\par
+  \vspace{4pt}
+  \noindent{\fontsize{12.5}{13.5}\selectfont\textbf{#1}}\par
+  \vspace{3pt}
+}
+
+\newcommand{\roleline}[2]{%
+  \noindent
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+    \textbf{#1} & #2 \\
+  \end{tabular*}
+  \vspace{-2pt}
+}
+
+\newcommand{\orgline}[1]{%
+  #1\par
+  \vspace{1pt}
+}
+
+\newcommand{\techline}[1]{%
+  #1\par
+  \vspace{1pt}
+}
+
+\newcommand{\entryspace}{\vspace{2pt}}
+
+% Shorthand for the recurring Spartan Racing org line.
+\newcommand{\spartanracing}{Spartan Racing, Formula SAE\textbar{} San Jose, CA}
+
+% ---------------------------------------------------------------------------
+% Blocks that are identical on every version. Change once, changes everywhere.
+% ---------------------------------------------------------------------------
+
+\newcommand{\resumeheader}{%
+  \name{Akash Karthik}
+  \contact{San Jose, CA - akashkarthik473@gmail.com - linkedin.com/in/akash-karthik473 - github.com/akashkarthik473 - 9254069507}
+}
+
+\newcommand{\educationsection}{%
+  \sectionheader{EDUCATION}
+  \roleline{Bachelor of Science, Computer Science}{Expected May 2027}
+  \orgline{San Jose State University, San Jose, CA}
+  \orgline{Relevant Coursework: Data Structures \& Algorithms, Linear Algebra, Discrete Math, Computer Systems, Intro to Circuits}
+}
+
+\endinput

@@ -1,0 +1,76 @@
+STMicroelectronics — Software Algorithm/Embedded Intern
+Location: Santa Clara, CA (IN-PERSON, not remote)
+Start: Fall 2026 semester, approximately September
+Pay: $32–$43/hr base
+Captured: 2026-08-03
+
+OUR STORY
+
+At ST, we believe in the power of technology to drive innovation and make a
+positive impact on people, business, and society. We are a global semiconductor
+company, and our advanced technology & chips forms the hidden part of the world
+we live in today.
+
+When you join ST, you will be part of a global business of more than 115+
+nationalities and present in 40 countries, 50,000+, diverse and dedicated
+creators & makers of technology around the world!
+
+Developing technologies takes more than talent: it takes amazing people who
+understands collaboration and respect. People with passion and desire to disrupt
+the status quo, push boundaries and drive innovation - whilst unlocking your own
+potential.
+
+Working at ST means innovating for a future that we want to make smarter,
+greener, in a responsible and sustainable way. Our technology starts with you.
+Join us and start the future!
+
+ST is excited to welcome an Software Algorithm/Embedded Intern at our office
+located in Santa Clara, CA.
+
+IMPORTANT NOTES
+
+- We are looking for an intern who can start during the Fall 2026 semester
+  (approximately in September).
+- This position is NOT a remote position. The intern is required to go in-person.
+
+YOUR ROLE
+
+- Design an implementation of algorithms, data collection experiments,
+  integration and verification on embedded platforms.
+- Contribute to the development of novel algorithms to recognize the pattern of
+  activities based on sensor data for applications such as motion tracking
+  optical systems.
+- Assist in development of firmware for algorithm implementation on different
+  platforms.
+- Responsible for the design, development, testing and delivery of sensor
+  software drivers and algorithms for mobile / wearable / industrial /
+  automotive platforms.
+
+YOUR SKILLS & EXPERIENCES
+
+- Working towards a Bachelor's or Master's degree in Computer Science,
+  Electrical Engineering, Physics or equivalent field.
+- Experience with implementing algorithms on embedded platforms using C, C++
+  programming language.
+- Experience with Python and tools used for Machine Learning analysis and
+  development.
+
+COMPENSATION
+
+At STMicroelectronics, base salary is one part of our total compensation package
+and is determined within a range depending on your skills, qualifications,
+experience, and location. The base hourly rate range for this role is between
+$32 and $43 USD.
+
+We encourage candidates who may not meet every single requirement to apply, as
+we appreciate diverse perspectives and provide opportunities for growth and
+learning. Diversity, Equity and Inclusion (DEI) is part of our company culture.
+Our DEI vision is, "At ST, you can be the true version of yourself", we value all
+employee contributions and have zero tolerance for any kind of discrimination.
+
+Joining us is also about a greater work-life balance and workplace with equal
+opportunities. Dedicated Employee Resource Groups for women and LGBTQIA+, hybrid
+work arrangements are amongst the many DEI & Sustainability initiatives that make
+us a great place to evolve your career.
+
+To discover more, visit st.com/careers

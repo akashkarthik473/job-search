@@ -1,0 +1,192 @@
+% ---------------------------------------------------------------------------
+% MASTER RESUME - NEVER SUBMIT THIS FILE.
+%
+% This is the printable superset: every role, every project, every bullet
+% variant, all in one place. Run it to 2-3 pages and let it grow.
+%
+% Bracketed tags mark which base each bullet is written for:
+%   [emb]  embedded / controls
+%   [sim]  simulation / robotics / test
+%   [swe]  general software / backend
+%   [lead] leadership / ownership framing
+%
+% master/bullet_bank.md is the source of truth for wording and confidence.
+% When you change a bullet there, mirror it here.
+% ---------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+\usepackage{resume}
+
+\pagestyle{plain}   % master is multi-page; keep page numbers
+
+\newcommand{\vtag}[1]{\textbf{[#1]}~}
+
+\begin{document}
+\bodyfont
+
+\resumeheader
+
+\begin{center}
+{\fontsize{9}{10}\selectfont\textbf{MASTER COPY - NOT FOR SUBMISSION}}
+\end{center}
+\vspace{4pt}
+
+\educationsection
+
+\sectionheader{SKILLS INVENTORY (full, unordered)}
+
+\techline{\textbf{Languages}: C, C++, Python, TypeScript/JavaScript, SQL, Java, Assembly}
+\techline{\textbf{Controls}: Fixed-point PI/PID, anti-windup, saturation, slew-rate limiting, control-loop tuning, state estimation, sensor fusion, Bode/Nyquist}
+\techline{\textbf{Embedded}: TTC 60 VCU, STM32H7, PX4 flight stack, real-time firmware, CAN, SPI, microcontroller I/O}
+\techline{\textbf{Simulation \& Test}: Software-in-the-loop, closed-loop simulation, scripted replay, regression suites, parameter sweeps, pytest}
+\techline{\textbf{Robotics \& Perception}: Visual-inertial odometry, IMU fusion, OpenCV, real-time vision pipelines}
+\techline{\textbf{Web \& APIs}: Flask, FastAPI, React, Node.js/Express, REST/JSON, input validation, sessions/JWT basics}
+\techline{\textbf{Data}: NumPy, pandas, Matplotlib, SQLite, SQL Server, schema design, CSV/JSON telemetry pipelines}
+\techline{\textbf{Quality \& DevOps}: pytest, Jest, GitHub Actions, Docker, structured logging, GDB, Git/GitHub, Postman}
+\techline{\textbf{Domain Tools}: TASKING, TTC Downloader, BusMaster, MoTeC i2 Pro, Pygame}
+
+\sectionheader{EXPERIENCE - ALL BULLETS}
+
+\roleline{Software Lead}{Jun 2026 - Present}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item \vtag{emb} Lead software planning for VCU controls, embedded firmware, telemetry, CAN diagnostics, and validation workflows
+  \item \vtag{emb} Coordinate priorities and technical reviews across power limiting, launch control, dashboard, simulation, and vehicle testing
+  \item \vtag{sim} Lead validation strategy for VCU controls, telemetry, CAN diagnostics, simulation, and on-vehicle test workflows
+  \item \vtag{sim} Define testable software requirements and coordinate reviews across power limiting, launch control, dashboard, and SIL projects
+  \item \vtag{swe} Lead software planning for Python telemetry tooling, controller validation, CAN diagnostics, and shared testing workflows
+  \item \vtag{swe} Standardize project requirements, test evidence, and technical reviews across dashboard, simulation, and vehicle software projects
+  \item \vtag{lead} Defined software requirements and validation plans across controls, telemetry, launch control, efficiency, and vehicle integration projects
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Engineer Intern}{Feb 2026 - Present}
+\orgline{Argus Defense \textbar{} San Jose, CA}
+\begin{itemize}
+  \item \vtag{emb} Tuned PID flight-control loops on a PX4 flight controller to reduce vertical and horizontal position drift in autonomous flight
+  \item \vtag{emb} Integrated and tuned visual-inertial odometry for onboard state estimation, improving position-hold accuracy
+  \item \vtag{emb} Developed and validated embedded flight-control firmware in C on PX4, iterating control gains against logged flight telemetry
+  \item \vtag{sim} Tuned PX4 PID flight-control loops to reduce vertical and horizontal drift during autonomous position hold
+  \item \vtag{sim} Integrated and tuned visual-inertial odometry for onboard state estimation and evaluated performance against logged telemetry
+  \item \vtag{sim} Developed embedded flight-control changes in C and iterated gains through repeatable flight tests and log review
+  \item \vtag{swe} Developed and validated flight-control software in C on PX4, using structured telemetry logs to reproduce issues and evaluate changes
+  \item \vtag{swe} Integrated visual-inertial odometry and iterated configuration through repeatable tests and documented results
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Controls Engineer}{Jul 2025 - Jun 2026}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item \vtag{emb} Designed a lap-adaptive energy-management algorithm that sets a power setpoint from cumulative energy versus budget, with the controller holding actual power within \textbf{0.01\%} of setpoint
+  \item \vtag{emb} Developed embedded power-limiting firmware with a PI controller on the VCU, maximizing motor output while enforcing FSAE's 80 kW limit
+  \item \vtag{emb} Built CAN diagnostics firmware for live power and torque frames, status bits, and error counters for real-time BusMaster monitoring
+  \item \vtag{sim} Implemented a torque-to-power controller with fixed-point PI control, saturation, anti-windup, and slew limits for deterministic VCU execution
+  \item \vtag{sim} Built Python telemetry parsers and a software-in-the-loop replay harness to validate controller changes against recorded CSV logs
+  \item \vtag{sim} Planned and executed on-vehicle tests, measured response and latency, and generated plots for parameter tuning and regression review
+  \item \vtag{swe} Developed Python telemetry pipelines to parse vehicle logs, calculate controller response metrics, and generate plots for tuning and validation
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Intern}{Aug 2024 - Jun 2025}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item \vtag{emb} Built deterministic entry and exit state logic for power limiting from measured power, requested torque, and threshold flags
+  \item \vtag{emb} Tuned the PI torque controller used for power limiting to within \textbf{2\%} error, smoothing torque transitions to preserve drivability
+  \item \vtag{sim} Extracted a desktop simulator and regression suite to reproduce field scenarios, run controller sweeps, and prevent regressions
+  \item \vtag{sim} Tuned PI torque control and deterministic state transitions using logged power, torque, and threshold data
+  \item \textbf{Results:} 1st in endurance at MIS EV 2025
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Development Intern}{Sep 2024 - Oct 2024}
+\orgline{Zip Intelligence \textbar{} Tracy, CA}
+\begin{itemize}
+  \item \vtag{swe} Implemented frontend validation and clearer error states, then paired with engineers to harden REST endpoints for status codes and edge cases
+  \item \vtag{swe} Added SQL Server update scripts and structured logs to speed reproduction and issue triage
+  \item \vtag{swe} Took ownership of a small feature from ticket through verified release, shipping via pull requests with setup and change documentation
+\end{itemize}
+
+\entryspace
+
+\roleline{Data Analyst}{Jan 2024 - Aug 2024}
+\orgline{Sailfish \textbar{} Tracy, CA}
+\begin{itemize}
+  \item \vtag{swe} Built structured dashboards, weekly summaries, and maintainable QA notes while streamlining data entry and reporting a 32\% improvement in tracked metrics
+\end{itemize}
+
+\sectionheader{PROJECTS - ALL BULLETS}
+
+\roleline{Formula SAE EV Dashboard}{Feb 2026 - Present}
+\orgline{\spartanracing}
+\techline{C, STM32H7, CAN, SPI}
+\begin{itemize}
+  \item \vtag{emb} Built a real-time CAN telemetry display for HV voltage, throttle, cell temperature, and power budget on an LCD
+  \item \vtag{emb} Designed an energy bar and LED alert system giving the driver lap-by-lap feedback on energy budget
+\end{itemize}
+
+\entryspace
+
+\roleline{Formula SAE EV Vehicle Simulation}{Jul 2025}
+\orgline{\spartanracing}
+\techline{Python, Pygame, Matplotlib, vehicle dynamics, PID control, CSV logging}
+\begin{itemize}
+  \item \vtag{emb} Built a physics-based FSAE EV simulation to model acceleration using vehicle mass, drag, gearing, and motor torque
+  \item \vtag{emb} Implemented PID-based power limiting to the FSAE 80 kW rule and logged runs to CSV for repeatable tuning and validation
+  \item \vtag{sim} Built a physics-based vehicle simulator for torque, drag, acceleration, and steering to evaluate control changes before hardware tests
+  \item \vtag{sim} Added headless batch runs, seeded scenarios, CSV summaries, and plots for repeatable offline comparisons
+\end{itemize}
+
+\entryspace
+
+\roleline{SR-Wireless-CAN --- Wireless CAN Telemetry Platform}{2026}
+\orgline{\spartanracing --- \textit{backend lead}}
+\techline{Python, FastAPI, WebSockets, python-can, React, SQLite, Docker Compose}
+\begin{itemize}
+  \item \vtag{emb} Proposed and implemented wireless firmware flashing for the TTC 60 VCU, decoding the flashing sequence from CAN trace captures and reimplementing it in Python over the bus
+  \item \vtag{swe} Led backend development for a wireless CAN telemetry platform, building a FastAPI and WebSocket service that streams live vehicle telemetry to a React dashboard with SQLite persistence
+  \item \vtag{swe} Implemented structured DBC upload and merge with automatic conflict resolution, and a bounded search window that keeps large signal catalogs responsive
+  \item \vtag{swe} Containerized the backend, frontend, and database with Docker Compose for one-command setup across team machines
+  \item \vtag{sim} Added replay of recorded \texttt{.trc} CAN traces plus simulated and hardware (\texttt{can0}) capture modes, so runs could be reproduced and re-examined off the vehicle
+  \item \vtag{sim} Built table, graph, and value/condition monitoring modes for arbitrary CAN signals, with live run observation shared across devices over WebSockets
+  \item \vtag{emb} Developed wireless CAN capture and diagnostics tooling with DBC-driven signal decoding, replacing tethered bench monitoring during vehicle testing
+\end{itemize}
+
+\entryspace
+
+\roleline{Posture Detection System}{2025}
+\techline{Python, OpenCV, real-time vision, telemetry}
+\begin{itemize}
+  \item \vtag{sim} Developed a webcam pose-detection pipeline with overlays, smoothing, debounce logic, and configurable alert thresholds
+  \item \vtag{sim} Tracked FPS and latency, recorded sessions, and exported labeled frames and CSV metrics for offline analysis
+\end{itemize}
+
+\entryspace
+
+\roleline{Tickr --- AI-Coached Paper-Trading Game}{2025}
+\techline{TypeScript/JavaScript, React, flat-file datastore, responsive UI}
+\begin{itemize}
+  \item \vtag{swe} Built registration, sign-in, game, and history flows for a scenario-driven trading game with an AI coach
+  \item \vtag{swe} Implemented quest and prompt logic, client-side state management, and a mobile-responsive interface
+\end{itemize}
+
+\entryspace
+
+\roleline{Scent Showdown}{2025}
+\techline{Flask, HTML/CSS/JavaScript, SQLite, REST/JSON}
+\begin{itemize}
+  \item \vtag{swe} Built a matchup and leaderboard application with Flask routes, templates, a compact SQLite schema, input validation, and an admin view
+  \item \vtag{swe} Added JSON endpoints, seed and export scripts, deployment setup, and a maintainer-focused README
+\end{itemize}
+
+\entryspace
+
+\roleline{Educational Trading Bot}{---}
+\techline{TO FILL IN - see master/project\_inventory.md}
+\begin{itemize}
+  \item Listed in the job-search plan but no bullets exist yet in any resume version. Write two bullets and add them here and to the bullet bank.
+\end{itemize}
+
+\end{document}

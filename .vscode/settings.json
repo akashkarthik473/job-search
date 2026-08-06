@@ -1,0 +1,45 @@
+{
+    // latexmk is a Perl script; MiKTeX on Windows has no Perl. Call xelatex
+    // directly instead. Two passes: the second settles hyperref PageLabels.
+    // TEXINPUTS lets every .tex in the repo find style/resume.sty.
+    "latex-workshop.latex.tools": [
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ],
+            "env": {
+                "TEXINPUTS": "%WORKSPACE_FOLDER%/style;"
+            }
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "xelatex x2",
+            "tools": [
+                "xelatex",
+                "xelatex"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipe.default": "first",
+    // Cleaning also defaults to latexmk -- use glob instead.
+    "latex-workshop.latex.clean.method": "glob",
+    "latex-workshop.latex.autoClean.onBuild": true,
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.log",
+        "*.out",
+        "*.synctex.gz",
+        "*.xdv",
+        "*.fls",
+        "*.fdb_latexmk"
+    ],
+    // files.autoSave is on globally; onFileChange would rebuild constantly.
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.view.pdf.viewer": "tab"
+}

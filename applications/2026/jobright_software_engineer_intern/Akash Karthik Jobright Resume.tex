@@ -1,0 +1,85 @@
+% ---------------------------------------------------------------------------
+% Jobright - Software Engineer Intern
+% Tailored from bases/software_backend.tex on 2026-08-03
+% Worksheet: notes.md in this folder. Posting: job_description.txt
+%
+% !! SR-Wireless-CAN appears here and the repo is under a teammate's account.
+%    CONFIRM YOUR SCOPE and narrow the wording before sending.
+%
+% Do NOT put the company name anywhere in the rendered document. It belongs in
+% the filename only.
+% ---------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+\usepackage{resume}
+
+\begin{document}
+\bodyfont
+
+\resumeheader
+\educationsection
+
+\sectionheader{TECHNICAL SKILLS}
+
+\techline{\textbf{Languages}: Python, TypeScript/JavaScript, SQL, Java, C/C++}
+\techline{\textbf{Backend \& APIs}: FastAPI, Flask, Node.js/Express, REST/JSON, WebSockets, LLM integration, input validation, schema design}
+\techline{\textbf{Frontend}: React, HTML/CSS/JavaScript, client-side state management, responsive UI}
+\techline{\textbf{Data \& Quality}: SQLite, SQL Server, pandas, NumPy, pytest, Jest, GitHub Actions, Docker, structured logging, Git, Postman}
+
+\sectionheader{EXPERIENCE}
+
+\roleline{Software Lead}{Jun 2026 - Present}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Lead software planning for Python telemetry tooling, controller validation, CAN diagnostics, and shared testing workflows
+  \item Standardize project requirements, test evidence, and technical reviews across dashboard, simulation, and vehicle software projects
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Engineer Intern}{Feb 2026 - Present}
+\orgline{Argus Defense \textbar{} San Jose, CA}
+\begin{itemize}
+  \item Developed and validated flight-control software in C on PX4, using structured telemetry logs to reproduce issues and evaluate changes
+  \item Integrated visual-inertial odometry and iterated configuration through repeatable tests and documented results
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Development Intern}{Sep 2024 - Oct 2024}
+\orgline{Zip Intelligence \textbar{} Tracy, CA}
+\begin{itemize}
+  \item Implemented frontend validation and clearer error states, then paired with engineers to harden REST endpoints for status codes and edge cases
+  \item Added SQL Server update scripts and structured logs to speed reproduction and issue triage
+  \item Took ownership of a small feature from ticket through verified release, shipping via pull requests with setup and change documentation
+\end{itemize}
+
+\sectionheader{PROJECT EXPERIENCE}
+
+\roleline{Tickr --- AI-Coached Paper-Trading Game}{2025}
+\techline{TypeScript/JavaScript, React, LLM integration, flat-file datastore, responsive UI}
+\begin{itemize}
+  \item Built registration, sign-in, game, and history flows for a scenario-driven trading game with an AI coach
+  \item Implemented quest and prompt logic, client-side state management, and a mobile-responsive interface
+\end{itemize}
+
+\entryspace
+
+\roleline{SR-Wireless-CAN --- Wireless Vehicle Telemetry Platform}{2026}
+\orgline{\spartanracing \textbar{} Backend lead}
+\techline{Python, FastAPI, WebSockets, React, SQLite, Docker Compose}
+\begin{itemize}
+  \item Led backend development for a wireless vehicle telemetry platform, building a FastAPI and WebSocket service that streams live data to a React dashboard with SQLite persistence
+  \item Implemented structured upload and merge of signal definitions with automatic conflict resolution, and a bounded search window keeping large catalogs responsive
+  \item Reverse-engineered an undocumented device flashing protocol from bus trace captures and reimplemented it in Python, enabling wireless firmware updates
+\end{itemize}
+
+\entryspace
+
+\roleline{Scent Showdown}{2025}
+\techline{Flask, HTML/CSS/JavaScript, SQLite, REST/JSON}
+\begin{itemize}
+  \item Built a matchup and leaderboard application with Flask routes, templates, a compact SQLite schema, input validation, and an admin view
+  \item Added JSON endpoints, seed and export scripts, deployment setup, and a maintainer-focused README
+\end{itemize}
+
+\end{document}

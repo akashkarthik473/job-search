@@ -1,0 +1,88 @@
+% ---------------------------------------------------------------------------
+% STMicroelectronics - Software Algorithm/Embedded Intern
+% Tailored from bases/embedded_controls.tex on 2026-08-03
+% Worksheet: notes.md in this folder. Posting: job_description.txt
+%
+% Do NOT put the company name anywhere in the rendered document. It belongs in
+% the filename only.
+%
+% Tailoring: skills regrouped as Algorithms & Sensors; Argus leads with VIO
+% (their "motion tracking optical systems"); FSAE leads with the fixed-point PI
+% algorithm; Posture Detection swapped in for Vehicle Simulation as the
+% activity-recognition evidence. No ML claims - see notes.md Step 3.
+% ---------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+\usepackage{resume}
+
+\begin{document}
+\bodyfont
+
+\resumeheader
+\educationsection
+
+\sectionheader{TECHNICAL SKILLS}
+
+\techline{\textbf{Languages}: C, C++, Python, Assembly, Java}
+\techline{\textbf{Algorithms \& Sensors}: Fixed-point PI/PID, state estimation, visual-inertial and IMU sensor fusion, anti-windup, slew-rate limiting, smoothing and debounce logic}
+\techline{\textbf{Embedded}: STM32H7, TTC 60 VCU, PX4, real-time firmware, CAN, SPI, microcontroller I/O}
+\techline{\textbf{Python \& Tools}: NumPy, pandas, Matplotlib, OpenCV, pytest, software-in-the-loop replay, TASKING, BusMaster, MoTeC i2 Pro, GDB, Git}
+
+\sectionheader{EXPERIENCE}
+
+\roleline{Software Engineer Intern}{Feb 2026 - Present}
+\orgline{Argus Defense \textbar{} San Jose, CA}
+\begin{itemize}
+  \item Integrated and tuned visual-inertial odometry for onboard state estimation, fusing optical and inertial sensor data to improve position-hold accuracy
+  \item Developed and validated embedded flight-control firmware in C on PX4, iterating control gains against logged flight telemetry
+  \item Tuned PID flight-control loops on a PX4 flight controller to reduce vertical and horizontal position drift in autonomous flight
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Lead}{Jun 2026 - Present}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Lead software planning for VCU controls, embedded firmware, telemetry, CAN diagnostics, and validation workflows
+  \item Coordinate priorities and technical reviews across power limiting, launch control, dashboard, simulation, and vehicle testing
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Controls Engineer}{Jul 2025 - Jun 2026}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Implemented a torque-to-power algorithm in C with fixed-point PI control, saturation, anti-windup, and slew limits for deterministic TTC 60 VCU execution
+  \item Designed a lap-adaptive energy-management algorithm setting a power setpoint from cumulative energy versus budget, holding actual power within \textbf{0.01\%} of setpoint
+  \item Built CAN diagnostics firmware for live power and torque frames, plus a software-in-the-loop replay harness to verify controller changes against recorded telemetry
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Intern}{Aug 2024 - Jun 2025}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Built deterministic entry and exit state logic for power limiting from measured power, requested torque, and threshold flags
+  \item Tuned the PI torque controller used for power limiting to within \textbf{2\%} error, smoothing torque transitions to preserve drivability
+  \item \textbf{Results:} 1st in endurance at MIS EV 2025
+\end{itemize}
+
+\sectionheader{PROJECT EXPERIENCE}
+
+\roleline{Posture Detection System}{2025}
+\techline{Python, OpenCV, real-time vision, sensor telemetry}
+\begin{itemize}
+  \item Developed a real-time pose-detection pipeline classifying posture from camera data with temporal smoothing, debounce logic, and configurable alert thresholds
+  \item Instrumented FPS and latency, recorded sessions, and exported labeled frames and CSV metrics for offline analysis
+\end{itemize}
+
+\entryspace
+
+\roleline{Formula SAE EV Dashboard}{Feb 2026 - Present}
+\orgline{\spartanracing}
+\techline{C, STM32H7, CAN, SPI}
+\begin{itemize}
+  \item Built a real-time CAN telemetry display on an STM32H7 driving an LCD over SPI, decoding HV voltage, throttle, cell temperature, and power budget
+  \item Designed an energy bar and LED alert system giving the driver lap-by-lap feedback on energy budget
+\end{itemize}
+
+\end{document}

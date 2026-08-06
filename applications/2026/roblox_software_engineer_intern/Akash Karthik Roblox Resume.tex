@@ -1,0 +1,87 @@
+% ---------------------------------------------------------------------------
+% Roblox - Software Engineer Intern
+% Tailored from bases/software_backend.tex on 2026-08-04
+% Worksheet: notes.md in this folder. Posting: job_description.txt
+%
+% Positioning: they team-match AFTER acceptance, so this reads for two teams at
+% once - Infra (backend services, real-time, deployment) and Engine (C/C++,
+% deterministic real-time execution). Tickr leads projects for the LLM angle.
+% No ML claims: LLM integration is not model development.
+%
+% Do NOT put the company name anywhere in the rendered document. It belongs in
+% the filename only.
+% ---------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+\usepackage{resume}
+
+\begin{document}
+\bodyfont
+
+\resumeheader
+\educationsection
+
+\sectionheader{TECHNICAL SKILLS}
+
+\techline{\textbf{Languages}: Python, C/C++, Java, TypeScript/JavaScript, SQL}
+\techline{\textbf{Backend \& APIs}: FastAPI, Flask, Node.js/Express, REST/JSON, WebSockets, real-time streaming, LLM integration, schema design}
+\techline{\textbf{Systems}: Real-time and deterministic execution, fixed-point arithmetic, embedded firmware, concurrency, performance profiling}
+\techline{\textbf{Testing \& Deployment}: pytest, Jest, GitHub Actions, Docker, structured logging, Git/GitHub, Postman, React}
+
+\sectionheader{EXPERIENCE}
+
+\roleline{Software Lead}{Jun 2026 - Present}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Lead software planning for Python tooling, controller validation, diagnostics, and shared testing workflows across five project teams
+  \item Standardize project requirements, test evidence, and technical reviews spanning dashboard, simulation, and vehicle software
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Engineer Intern}{Feb 2026 - Present}
+\orgline{Argus Defense \textbar{} San Jose, CA}
+\begin{itemize}
+  \item Developed and validated flight-control software in C on PX4, using structured telemetry logs to reproduce issues and evaluate changes
+  \item Integrated visual-inertial odometry and iterated configuration through repeatable tests and documented results
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Controls Engineer}{Jul 2025 - Jun 2026}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Implemented a real-time control routine in C using fixed-point arithmetic, saturation, and rate limiting to meet hard deterministic timing budgets on an embedded target
+  \item Built Python parsers and a replay harness that validated changes against recorded logs before deployment to hardware
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Development Intern}{Sep 2024 - Oct 2024}
+\orgline{Zip Intelligence \textbar{} Tracy, CA}
+\begin{itemize}
+  \item Took ownership of a feature from ticket through verified production release, shipping via pull requests with setup and change documentation
+  \item Implemented frontend validation and clearer error states, then paired with engineers to harden REST endpoints for status codes and edge cases
+  \item Added SQL Server update scripts and structured logs to speed reproduction and issue triage
+\end{itemize}
+
+\sectionheader{PROJECT EXPERIENCE}
+
+\roleline{Tickr --- AI-Coached Paper-Trading Game}{2025}
+\techline{TypeScript/JavaScript, React, LLM integration, responsive UI}
+\begin{itemize}
+  \item Built registration, sign-in, game, and history flows for a scenario-driven trading game with an LLM-backed coach
+  \item Implemented quest and prompt logic, client-side state management, and a mobile-responsive interface
+\end{itemize}
+
+\entryspace
+
+\roleline{SR-Wireless-CAN --- Real-Time Telemetry Platform}{2026}
+\orgline{\spartanracing \textbar{} Backend lead}
+\techline{Python, FastAPI, WebSockets, React, SQLite, Docker Compose}
+\begin{itemize}
+  \item Led backend development for a real-time telemetry platform, building a FastAPI and WebSocket service that streams live data to a React dashboard with SQLite persistence
+  \item Implemented structured upload and merge of signal definitions with conflict resolution, and a bounded search window keeping large catalogs responsive
+  \item Containerized the backend, frontend, and database with Docker Compose for one-command deployment across machines
+\end{itemize}
+
+\end{document}

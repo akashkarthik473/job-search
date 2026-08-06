@@ -1,0 +1,45 @@
+Jobright — Software Engineer Intern
+Location: ONSITE, Santa Clara, CA
+Captured: 2026-08-03
+
+ABOUT
+
+Jobright is your personal AI job search agent that transforms the way you do job
+search from solo, time-consuming efforts to a fast, expert-guided journey,
+simplifying every job search step and accelerating your route to the best job
+outcomes. As a Software Engineer Intern, you will work closely with engineers,
+designers, and product managers to build, test, and ship software used by real
+job seekers in our Santa Clara office.
+
+WHY JOIN US
+
+- Build real, production AI agents used by real users
+- High ownership and impact
+- Work at the intersection of AI, agents, and product
+- Shape how people experience AI-driven job search
+
+RESPONSIBILITIES
+
+- Build and improve reliable product features across frontend and backend systems
+- Design APIs, services, and data models that support AI-powered job search
+- Write clean, maintainable, and well-tested code
+- Debug production issues and improve system performance and reliability
+- Collaborate with product, design, and data teams in an in-person environment
+
+QUALIFICATIONS — REQUIRED
+
+- Currently pursuing a degree in Computer Science, Software Engineering, or a
+  related field
+- Strong programming skills in at least one language, such as Python,
+  TypeScript, Java, Go, or C++
+- Understanding of data structures, algorithms, and software engineering
+  fundamentals
+- Familiarity with Git and collaborative development workflows
+- Ability to work onsite in Santa Clara, CA
+
+QUALIFICATIONS — PREFERRED
+
+- Experience building web applications, APIs, or distributed systems
+- Familiarity with React, Node.js, SQL, or cloud platforms
+- Interest in AI, LLMs, recommendation systems, or developer tools
+- Previous internship, research, or significant personal project experience

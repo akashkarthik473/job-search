@@ -1,0 +1,150 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[margin=0.58in,top=0.40in,bottom=0.40in]{geometry}
+\usepackage{fontspec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+% Compile with XeLaTeX or LuaLaTeX.
+\IfFontExistsTF{Calibri}{\setmainfont{Calibri}}{\setmainfont{Carlito}}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{0pt}
+\renewcommand{\arraystretch}{1.0}
+
+\newcommand{\bodyfont}{\fontsize{10}{11.1}\selectfont}
+
+\setlist[itemize]{
+  leftmargin=1.25em,
+  label=\raisebox{0.10ex}{\small\textbullet},
+  topsep=2pt,
+  itemsep=1pt,
+  parsep=0pt,
+  partopsep=0pt,
+  after=\vspace{4pt}
+}
+
+\newcommand{\name}[1]{%
+  \begin{center}
+    {\fontsize{16.5}{17.5}\selectfont\textbf{#1}}
+  \end{center}
+  \vspace{-4pt}
+}
+
+\newcommand{\contact}[1]{%
+  \begin{center}
+    {\fontsize{9.6}{10.6}\selectfont #1}
+  \end{center}
+  \vspace{5pt}
+}
+
+% Original-style section divider: line above the section, not under it.
+\newcommand{\sectionheader}[1]{%
+  \vspace{4pt}
+  \noindent\rule{\textwidth}{0.35pt}\par
+  \vspace{4pt}
+  \noindent{\fontsize{12.5}{13.5}\selectfont\textbf{#1}}\par
+  \vspace{3pt}
+}
+
+\newcommand{\roleline}[2]{%
+  \noindent
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+    \textbf{#1} & #2 \\
+  \end{tabular*}
+  \vspace{-2pt}
+}
+
+\newcommand{\orgline}[1]{%
+  #1\par
+  \vspace{1pt}
+}
+
+\newcommand{\techline}[1]{%
+  #1\par
+  \vspace{1pt}
+}
+
+\newcommand{\entryspace}{\vspace{2pt}}
+
+\begin{document}
+\bodyfont
+
+\name{Akash Karthik}
+
+\contact{San Jose, CA - akashkarthik473@gmail.com - linkedin.com/in/akash-karthik473 - github.com/akashkarthik473 - 9254069507}
+
+\sectionheader{EDUCATION}
+
+\roleline{Bachelor of Science, Computer Science}{Expected May 2027}
+\orgline{San Jose State University, San Jose, CA}
+\orgline{Relevant Coursework: Data Structures \& Algorithms, Linear Algebra, Discrete Math, Computer Systems, Intro to Circuits}
+
+\sectionheader{TECHNICAL SKILLS}
+
+\techline{\textbf{Languages}: Python, C/C++, Java, SQL}
+\techline{\textbf{Simulation \& Test}: Software-in-the-loop, closed-loop simulation, pytest, scripted replay, regression tests, parameter sweeps}
+\techline{\textbf{Robotics \& Perception}: PX4, visual-inertial odometry, IMU sensor fusion, OpenCV, PID tuning, real-time pipelines}
+\techline{\textbf{Data \& Tools}: NumPy, pandas, Matplotlib, CSV/JSON telemetry, GDB, BusMaster, MoTeC i2 Pro, GitHub Actions}
+
+\sectionheader{EXPERIENCE}
+
+\roleline{Software Lead}{Jun 2026 - Present}
+\orgline{Spartan Racing, Formula SAE\textbar{} San Jose, CA}
+\begin{itemize}
+  \item Lead validation strategy for VCU controls, telemetry, CAN diagnostics, simulation, and on-vehicle test workflows
+  \item Define testable software requirements and coordinate reviews across power limiting, launch control, dashboard, and SIL projects
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Engineer Intern}{Feb 2026 - Present}
+\orgline{Argus Defense \textbar{} San Jose, CA}
+\begin{itemize}
+  \item Tuned PX4 PID flight-control loops to reduce vertical and horizontal drift during autonomous position hold
+  \item Integrated and tuned visual-inertial odometry for onboard state estimation and evaluated performance against logged telemetry
+  \item Developed embedded flight-control changes in C and iterated gains through repeatable flight tests and log review
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Controls Engineer}{Jul 2025 - Jun 2026}
+\orgline{Spartan Racing, Formula SAE\textbar{} San Jose, CA}
+\begin{itemize}
+  \item Implemented a torque-to-power controller with fixed-point PI control, saturation, anti-windup, and slew limits for deterministic VCU execution
+  \item Built Python telemetry parsers and a software-in-the-loop replay harness to validate controller changes against recorded CSV logs
+  \item Planned and executed on-vehicle tests, measured response and latency, and generated plots for parameter tuning and regression review
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Intern}{Aug 2024 - Jun 2025}
+\orgline{Spartan Racing, Formula SAE\textbar{} San Jose, CA}
+\begin{itemize}
+  \item Extracted a desktop simulator and regression suite to reproduce field scenarios, run controller sweeps, and prevent regressions
+  \item Tuned PI torque control and deterministic state transitions using logged power, torque, and threshold data
+\end{itemize}
+
+\sectionheader{PROJECT EXPERIENCE}
+
+\roleline{Formula SAE EV Vehicle Simulation}{Jul 2025}
+\orgline{Spartan Racing, Formula SAE\textbar{} San Jose, CA}
+\techline{Python, Pygame, Matplotlib, vehicle dynamics, PID control, CSV logging}
+\begin{itemize}
+  \item Built a physics-based vehicle simulator for torque, drag, acceleration, and steering to evaluate control changes before hardware tests
+  \item Added headless batch runs, seeded scenarios, CSV summaries, and plots for repeatable offline comparisons
+\end{itemize}
+
+\entryspace
+
+\roleline{Posture Detection System}{2025}
+\techline{Python, OpenCV, real-time vision, telemetry}
+\begin{itemize}
+  \item Developed a webcam pose-detection pipeline with overlays, smoothing, debounce logic, and configurable alert thresholds
+  \item Tracked FPS and latency, recorded sessions, and exported labeled frames and CSV metrics for offline analysis
+\end{itemize}
+
+\end{document}

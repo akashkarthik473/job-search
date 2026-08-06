@@ -1,0 +1,87 @@
+% ---------------------------------------------------------------------------
+% BASE: Simulation / Robotics / Test
+%
+% Use for: robotics software, simulation engineering, controls validation,
+%          systems test, HW/SW integration, computer vision, autonomy tooling.
+% Leads with: SIL replay harness, regression testing, telemetry pipelines,
+%             vehicle simulation, VIO, on-vehicle test.
+% Story: "build a controller, simulate it, instrument it, validate it,
+%         and debug it on real hardware."
+%
+% Do not submit this file directly. Copy it into applications/<year>/<slug>/
+% via scripts/new-application.ps1, then tailor the copy.
+% ---------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+\usepackage{resume}
+
+\begin{document}
+\bodyfont
+
+\resumeheader
+\educationsection
+
+\sectionheader{TECHNICAL SKILLS}
+
+\techline{\textbf{Languages}: Python, C/C++, Java, SQL}
+\techline{\textbf{Simulation \& Test}: Software-in-the-loop, closed-loop simulation, pytest, scripted replay, regression tests, parameter sweeps}
+\techline{\textbf{Robotics \& Perception}: PX4, visual-inertial odometry, IMU sensor fusion, OpenCV, PID tuning, real-time pipelines}
+\techline{\textbf{Data \& Tools}: NumPy, pandas, Matplotlib, CSV/JSON telemetry, GDB, BusMaster, MoTeC i2 Pro, GitHub Actions}
+
+\sectionheader{EXPERIENCE}
+
+\roleline{Software Lead}{Jun 2026 - Present}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Lead validation strategy for VCU controls, telemetry, CAN diagnostics, simulation, and on-vehicle test workflows
+  \item Define testable software requirements and coordinate reviews across power limiting, launch control, dashboard, and SIL projects
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Engineer Intern}{Feb 2026 - Present}
+\orgline{Argus Defense \textbar{} San Jose, CA}
+\begin{itemize}
+  \item Tuned PX4 PID flight-control loops to reduce vertical and horizontal drift during autonomous position hold
+  \item Integrated and tuned visual-inertial odometry for onboard state estimation and evaluated performance against logged telemetry
+  \item Developed embedded flight-control changes in C and iterated gains through repeatable flight tests and log review
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Controls Engineer}{Jul 2025 - Jun 2026}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Implemented a torque-to-power controller with fixed-point PI control, saturation, anti-windup, and slew limits for deterministic VCU execution
+  \item Built Python telemetry parsers and a software-in-the-loop replay harness to validate controller changes against recorded CSV logs
+  \item Planned and executed on-vehicle tests, measured response and latency, and generated plots for parameter tuning and regression review
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Intern}{Aug 2024 - Jun 2025}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Extracted a desktop simulator and regression suite to reproduce field scenarios, run controller sweeps, and prevent regressions
+  \item Tuned PI torque control and deterministic state transitions using logged power, torque, and threshold data
+\end{itemize}
+
+\sectionheader{PROJECT EXPERIENCE}
+
+\roleline{Formula SAE EV Vehicle Simulation}{Jul 2025}
+\orgline{\spartanracing}
+\techline{Python, Pygame, Matplotlib, vehicle dynamics, PID control, CSV logging}
+\begin{itemize}
+  \item Built a physics-based vehicle simulator for torque, drag, acceleration, and steering to evaluate control changes before hardware tests
+  \item Added headless batch runs, seeded scenarios, CSV summaries, and plots for repeatable offline comparisons
+\end{itemize}
+
+\entryspace
+
+\roleline{Posture Detection System}{2025}
+\techline{Python, OpenCV, real-time vision, telemetry}
+\begin{itemize}
+  \item Developed a webcam pose-detection pipeline with overlays, smoothing, debounce logic, and configurable alert thresholds
+  \item Tracked FPS and latency, recorded sessions, and exported labeled frames and CSV metrics for offline analysis
+\end{itemize}
+
+\end{document}

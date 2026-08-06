@@ -1,0 +1,109 @@
+Western Digital (WD) — Early Career / Intern (umbrella posting, 5 tracks)
+Locations: Colorado Springs CO, Irvine CA, Longmont CO, Fremont CA,
+           Rochester MN, SAN JOSE CA  <-- target San Jose
+Captured: 2026-08-03
+
+NOTE: This is a pipeline req, not a specific opening. Their words:
+"This posting supports current and anticipated early-career hiring needs.
+Applying allows our recruiting team to consider you for opportunities that align
+with your qualifications, preferences, and availability. An immediate opening or
+interview is not guaranteed."
+
+ABOUT
+
+WD is building the infrastructure behind the AI-driven data economy. As AI
+scales, so does data. Every interaction, every model, every system generates
+data that must be stored, managed, and made accessible over time.
+
+They combine deep engineering expertise with global-scale manufacturing to
+deliver storage systems powering hyperscale data centers, cloud platforms, and
+enterprise infrastructure worldwide.
+
+--------------------------------------------------------------------------------
+THE FIVE TRACKS
+--------------------------------------------------------------------------------
+
+*** FIRMWARE ENGINEERING INTERN  <-- TARGET TRACK ***
+"Write the code that brings hardware to life."
+Develop the low-level software that allows hardware devices to function.
+Working at the intersection of hardware and software, building reliable,
+high-performance embedded systems.
+  - Design, develop, test, and debug embedded firmware.
+  - Write software using C, C++, assembly, and other low-level languages.
+  - Collaborate with hardware engineers to integrate software with electronic
+    systems.
+  - Troubleshoot firmware and hardware interactions to improve performance and
+    reliability.
+  - Support new product development from concept through production.
+
+SYSTEMS DESIGN & INTEGRATION INTERN   <-- strong second choice
+"Bring complex systems together."
+Ensure hardware and software work together seamlessly.
+  - Define system requirements and technical specifications.
+  - Evaluate hardware and software compatibility.
+  - Coordinate integration of multiple subsystems into complete products.
+  - Identify, troubleshoot, and resolve system-level issues.
+  - Recommend improvements to performance, reliability, and scalability.
+
+SYSTEM TOOLS SOFTWARE INTERN
+"Build the software behind the technology."
+  - Design and develop system software, utilities, and engineering tools.
+  - Build or enhance operating systems, compilers, networking tools, databases,
+    Internet-based applications.
+  - Troubleshoot, debug, and optimize software performance.
+  - Collaborate with hardware and software engineers on integration.
+  - Influence hardware design by developing software that works efficiently with
+    new technologies.
+
+APPLICATIONS SOFTWARE INTERN
+"Create software that helps teams work smarter."
+  - Design, develop, maintain commercial and internal software applications.
+  - Write clean, efficient, maintainable code using modern languages.
+  - Test, debug, improve application performance.
+  - Collaborate to build new features and solve technical problems.
+  - Create documentation supporting deployment and maintenance.
+
+DATA ANALYTICS INTERN
+"Turn data into insights that drive better decisions."
+  - Design and develop data pipelines, databases, and data warehouses.
+  - Build software and automation for collecting, processing, analyzing data.
+  - Create dashboards, reports, and visualizations.
+  - Partner with stakeholders to translate business needs into technical
+    solutions.
+  - Analyze data to identify trends, improve processes, solve problems.
+
+--------------------------------------------------------------------------------
+QUALIFICATIONS (REQUIRED)
+--------------------------------------------------------------------------------
+
+- Currently pursuing a Bachelor's or Master's degree in Computer Science,
+  Software Engineering, Computer Engineering, Systems Engineering, Data Science,
+  Electrical Engineering, or a related technical field.
+- Experience developing technical skills through coursework, internships,
+  research, or personal projects using one or more programming languages such as
+  C, C++, Python, Java, Go (Golang), SQL, JavaScript, or similar.
+- Familiarity with software development fundamentals, debugging, data
+  structures, algorithms, operating systems, or other computer engineering
+  concepts.
+- Strong analytical, critical thinking, and problem-solving skills with a
+  passion for learning new technologies.
+- Excellent written and verbal communication skills and ability to collaborate
+  effectively in a team environment.
+- Proficiency with Microsoft Office and common software development tools (Git,
+  Linux, IDEs) is a plus.
+- Interest in storage technologies, semiconductors, embedded systems, cloud
+  computing, AI, data analytics, or other emerging technologies.
+
+EARLY CAREER PROGRAM
+
+Structured onboarding, mentorship, and a curated development curriculum.
+Responsibilities typically align with 0-2+ years of relevant professional
+experience, though candidates of all experience levels are encouraged to apply.
+
+EEO / ACCOMMODATIONS
+
+WD is committed to equal opportunity and will not discriminate on the basis of
+race, color, ancestry, religion, sex, gender, age, national origin, sexual
+orientation, medical condition, marital status, disability, genetic information,
+veteran status, or other legally protected characteristics.
+Accommodation requests: jobs.accommodations@wdc.com

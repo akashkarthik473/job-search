@@ -1,0 +1,88 @@
+% ---------------------------------------------------------------------------
+% Haast Autonomous - Summer Engineering Intern (aircraft development)
+% Tailored from bases/simulation_robotics.tex on 2026-08-03
+% Worksheet: notes.md in this folder. Posting: job_description.txt
+%
+% Positioning: they name PX4 and Formula SAE in their own nice-to-haves and you
+% have both. Argus PX4 work leads. Skills regrouped so flight/autonomy is the
+% first thing read. SR-Wireless-CAN swapped in for Posture Detection - hardware
+% bring-up under ambiguity is the trait they say they hire for.
+%
+% Do NOT put the company name anywhere in the rendered document. It belongs in
+% the filename only.
+% ---------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+\usepackage{resume}
+
+\begin{document}
+\bodyfont
+
+\resumeheader
+\educationsection
+
+\sectionheader{TECHNICAL SKILLS}
+
+\techline{\textbf{Flight \& Autonomy}: PX4 flight stack, flight-control firmware, visual-inertial odometry, IMU sensor fusion, state estimation, flight testing, telemetry log analysis}
+\techline{\textbf{Controls}: PID and fixed-point PI, gain tuning, anti-windup, saturation, slew-rate limiting, deterministic real-time execution}
+\techline{\textbf{Simulation \& Test}: Physics-based vehicle simulation, software-in-the-loop replay, regression suites, parameter sweeps, headless batch runs, pytest}
+\techline{\textbf{Languages \& Tools}: Python, C/C++, NumPy, pandas, Matplotlib, OpenCV, CAN/DBC, GDB, BusMaster, MoTeC i2 Pro, Git}
+
+\sectionheader{EXPERIENCE}
+
+\roleline{Software Engineer Intern}{Feb 2026 - Present}
+\orgline{Argus Defense \textbar{} San Jose, CA}
+\begin{itemize}
+  \item Developed and validated embedded flight-control firmware in C on PX4, iterating control gains against logged flight telemetry
+  \item Integrated and tuned visual-inertial odometry for onboard state estimation and evaluated performance against logged telemetry
+  \item Tuned PX4 PID flight-control loops to reduce vertical and horizontal drift during autonomous position hold, iterating through repeatable flight tests and log review
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Lead}{Jun 2026 - Present}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Lead validation strategy for vehicle controls, telemetry, diagnostics, simulation, and on-vehicle test workflows
+  \item Define testable software requirements and coordinate reviews across controls, dashboard, simulation, and software-in-the-loop projects
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Controls Engineer}{Jul 2025 - Jun 2026}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Implemented a torque-to-power controller with fixed-point PI control, saturation, anti-windup, and slew limits for deterministic real-time execution
+  \item Built Python telemetry parsers and a software-in-the-loop replay harness to validate controller changes against recorded logs before hardware testing
+  \item Planned and executed on-vehicle tests, measured response and latency, and turned results into parameter changes and regression checks
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Intern}{Aug 2024 - Jun 2025}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Extracted a desktop simulator and regression suite to reproduce field scenarios, run controller sweeps, and prevent regressions
+  \item \textbf{Results:} 1st in endurance at MIS EV 2025
+\end{itemize}
+
+\sectionheader{PROJECT EXPERIENCE}
+
+\roleline{SR-Wireless-CAN --- Wireless Firmware Flashing \& Telemetry}{2026}
+\orgline{\spartanracing \textbar{} Backend lead}
+\techline{Python, python-can, bus trace analysis, FastAPI, WebSockets, SQLite, Docker}
+\begin{itemize}
+  \item Proposed and implemented wireless firmware flashing for the vehicle control unit, decoding the undocumented flashing sequence from bus trace captures and reimplementing it in Python
+  \item Led backend development for the telemetry platform, streaming live signals to a browser dashboard with recorded-trace replay for offline test review
+\end{itemize}
+
+\entryspace
+
+\roleline{Vehicle Dynamics Simulation}{Jul 2025}
+\orgline{\spartanracing}
+\techline{Python, Pygame, Matplotlib, vehicle dynamics, PID control, CSV logging}
+\begin{itemize}
+  \item Built a physics-based simulator for torque, drag, acceleration, and steering to evaluate control changes before committing them to hardware
+  \item Added headless batch runs, seeded scenarios, CSV summaries, and plots for repeatable offline comparison between builds
+\end{itemize}
+
+\end{document}

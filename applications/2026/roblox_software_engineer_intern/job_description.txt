@@ -1,0 +1,37 @@
+Roblox — Software Engineer Intern
+Location: NOT IN THE EXCERPT — Roblox interns are normally San Mateo, CA. Confirm.
+Term: NOT IN THE EXCERPT — confirm which summer.
+Pay: not in the excerpt.
+Captured: 2026-08-04
+
+NOTE: only the "About the role" bullets and "You Are" section were captured.
+Pull the full posting (location, term, comp, EEO) before applying.
+
+WHAT YOU'LL DO
+
+- Join our supportive community of engineers, receiving dedicated mentorship as
+  you deliver live production projects.
+- Investigate and experiment with cutting-edge technologies, such as machine
+  learning frameworks, agentic coding tools, and large language models (LLMs),
+  to solve complex technical challenges and improve our engineering systems.
+- Own a project from beginning to end, from coding and testing to deploying it
+  to production, and presenting your work to peers and leaders across the
+  company.
+- Partner closely with cross-functional teams, including Design, Product, Data,
+  QA, and DevOps, to deliver cohesive products and features.
+- Build a close community with fellow interns and full-time builders alike,
+  while gaining a broad perspective on the company as a whole through direct
+  access to leadership during tailored events for our interns.
+- Engage in our team matching process, learning about teams across Roblox —
+  including INFRA, ENGINE, SEARCH AND DISCOVERY, FOUNDATIONAL AI, and ECONOMY —
+  sharing your preferences so we can help connect your career with your
+  curiosity and passion.
+
+YOU ARE
+
+- Pursuing an undergraduate or graduate degree in computer science,
+  engineering, or a related field.
+- Working towards proficiency or proficient in one or more programming
+  languages, including Go, Node.js, Ruby, Python, C++, Lua, Swift, C#, and Java.
+- A curious collaborator, excited to learn, open to feedback, and eager to solve
+  the hardest technical challenges as part of our team.

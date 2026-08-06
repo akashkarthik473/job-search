@@ -1,0 +1,147 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[margin=0.58in,top=0.40in,bottom=0.40in]{geometry}
+\usepackage{fontspec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+% Compile with XeLaTeX or LuaLaTeX.
+\IfFontExistsTF{Calibri}{\setmainfont{Calibri}}{\setmainfont{Carlito}}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{0pt}
+\renewcommand{\arraystretch}{1.0}
+
+\newcommand{\bodyfont}{\fontsize{10}{11.1}\selectfont}
+
+\setlist[itemize]{
+  leftmargin=1.25em,
+  label=\raisebox{0.10ex}{\small\textbullet},
+  topsep=2pt,
+  itemsep=1pt,
+  parsep=0pt,
+  partopsep=0pt,
+  after=\vspace{4pt}
+}
+
+\newcommand{\name}[1]{%
+  \begin{center}
+    {\fontsize{16.5}{17.5}\selectfont\textbf{#1}}
+  \end{center}
+  \vspace{-4pt}
+}
+
+\newcommand{\contact}[1]{%
+  \begin{center}
+    {\fontsize{9.6}{10.6}\selectfont #1}
+  \end{center}
+  \vspace{5pt}
+}
+
+% Original-style section divider: line above the section, not under it.
+\newcommand{\sectionheader}[1]{%
+  \vspace{4pt}
+  \noindent\rule{\textwidth}{0.35pt}\par
+  \vspace{4pt}
+  \noindent{\fontsize{12.5}{13.5}\selectfont\textbf{#1}}\par
+  \vspace{3pt}
+}
+
+\newcommand{\roleline}[2]{%
+  \noindent
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+    \textbf{#1} & #2 \\
+  \end{tabular*}
+  \vspace{-2pt}
+}
+
+\newcommand{\orgline}[1]{%
+  #1\par
+  \vspace{1pt}
+}
+
+\newcommand{\techline}[1]{%
+  #1\par
+  \vspace{1pt}
+}
+
+\newcommand{\entryspace}{\vspace{2pt}}
+
+\begin{document}
+\bodyfont
+
+\name{Akash Karthik}
+
+\contact{San Jose, CA - akashkarthik473@gmail.com - linkedin.com/in/akash-karthik473 - github.com/akashkarthik473 - 9254069507}
+
+\sectionheader{EDUCATION}
+
+\roleline{Bachelor of Science, Computer Science}{Expected May 2027}
+\orgline{San Jose State University, San Jose, CA}
+\orgline{Relevant Coursework: Data Structures \& Algorithms, Linear Algebra, Discrete Math, Computer Systems, Intro to Circuits}
+
+\sectionheader{TECHNICAL SKILLS}
+
+\techline{\textbf{Languages}: Python, TypeScript/JavaScript, SQL, Java}
+\techline{\textbf{Web \& APIs}: Flask, FastAPI, React, Node.js/Express, REST/JSON, input validation, sessions/JWT basics}
+\techline{\textbf{Data \& Databases}: pandas, NumPy, SQLite, SQL Server, schema design, CSV/JSON pipelines}
+\techline{\textbf{Quality \& DevOps}: pytest, Jest, GitHub Actions, Docker, structured logging, Git/GitHub, Postman}
+
+\sectionheader{EXPERIENCE}
+
+\roleline{Software Lead}{Jun 2026 - Present}
+\orgline{Spartan Racing, Formula SAE\textbar{} San Jose, CA}
+\begin{itemize}
+  \item Lead software planning for Python telemetry tooling, controller validation, CAN diagnostics, and shared testing workflows
+  \item Standardize project requirements, test evidence, and technical reviews across dashboard, simulation, and vehicle software projects
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Engineer Intern}{Feb 2026 - Present}
+\orgline{Argus Defense \textbar{} San Jose, CA}
+\begin{itemize}
+  \item Developed and validated flight-control software in C on PX4, using structured telemetry logs to reproduce issues and evaluate changes
+  \item Integrated visual-inertial odometry and iterated configuration through repeatable tests and documented results
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Development Intern}{Sep 2024 - Oct 2024}
+\orgline{Zip Intelligence \textbar{} Tracy, CA}
+\begin{itemize}
+  \item Implemented frontend validation and clearer error states, then paired with engineers to harden REST endpoints for status codes and edge cases
+  \item Added SQL Server update scripts and structured logs to speed reproduction and issue triage
+  \item Took ownership of a small feature from ticket through verified release, shipping via pull requests with setup and change documentation
+\end{itemize}
+
+\entryspace
+
+\roleline{Data Analyst}{Jan 2024 - Aug 2024}
+\orgline{Sailfish \textbar{} Tracy, CA}
+\begin{itemize}
+  \item Built structured dashboards, weekly summaries, and maintainable QA notes while streamlining data entry and reporting a 32\% improvement in tracked metrics
+\end{itemize}
+
+\sectionheader{PROJECT EXPERIENCE}
+
+\roleline{Tickr --- AI-Coached Paper-Trading Game}{2025}
+\techline{TypeScript/JavaScript, React, flat-file datastore, responsive UI}
+\begin{itemize}
+  \item Built registration, sign-in, game, and history flows for a scenario-driven trading game with an AI coach
+  \item Implemented quest and prompt logic, client-side state management, and a mobile-responsive interface
+\end{itemize}
+
+\entryspace
+
+\roleline{Scent Showdown}{2025}
+\techline{Flask, HTML/CSS/JavaScript, SQLite, REST/JSON}
+\begin{itemize}
+  \item Built a matchup and leaderboard application with Flask routes, templates, a compact SQLite schema, input validation, and an admin view
+  \item Added JSON endpoints, seed and export scripts, deployment setup, and a maintainer-focused README
+\end{itemize}
+
+\end{document}
