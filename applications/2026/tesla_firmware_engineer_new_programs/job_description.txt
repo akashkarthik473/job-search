@@ -1,0 +1,20 @@
+Tesla — Internship, Firmware Engineer, New Programs Engineering (Winter/Spring 2027)
+
+What You'll Do
+
+    Prototype new vehicle programs. Define system hardware and software interfaces
+    Deliver high-quality C code in a real-time embedded environment
+    Specify, design, and implement functionality and behaviors of embedded subsystems
+    Engage cross-functional discussions with electrical, software, manufacturing, mechanical design, and service teams
+    Understand and debug interfaces/interactions required for successful implementation of vehicle level firmware
+
+What You'll Bring
+
+    Currently pursuing a degree in Engineering, Computer Science, Mechatronics, or a related field
+    Experience in C/C++
+    Solid understanding of embedded development and low-level coding
+    Ability to collaborate and communicate complex technical concepts
+    Must be detail-oriented with an ability to think creatively and produce "outside of the box" solutions
+    FSAE, Hyperloop or Solar Racing experience is a plus
+    Familiarity with embedded communication protocols is a big plus (such as CAN, LIN, I2C, SPI)
+    Experience with RTOS, firmware architecture, device drivers or programming hardware components is a plus

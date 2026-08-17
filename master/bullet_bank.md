@@ -21,54 +21,182 @@ number in it that you must be able to defend before it goes out.
 
 ## Spartan Racing — Software Lead (Jun 2026 – Present)
 
-- **id:** `lead-software-planning-emb`
+**Rewritten 2026-08-16** from the SR-18 Electronics & Software Meeting #5 deck
+(Aug 12 2026), which is the primary evidence artifact for everything below. The
+previous seven bullets here were generic ("lead software planning", "coordinate
+priorities") and named no system, number, or outcome — they have been replaced.
+Keep the deck; it is a dated, per-project written record with your name on it.
+
+**Two scope assumptions, stated 2026-08-16 — correct them if wrong:**
+1. **Custom BMS** — you own the *software/firmware* side. The deck lists Hendson
+   and Alex on the BMS controller and follower *boards* under Electronics, so
+   claiming the whole BMS program would not survive a reference check. Bullets
+   below say "BMS firmware".
+2. **Software dash** — the firmware for the new three-CAN dash board (Carson is
+   doing the hardware). Treated as the continuation of the existing
+   `Formula SAE EV Dashboard` project, not a separate one.
+
+**One wording caution.** The Custom VCU console banner in the deck reads
+"Roku LT OS — Copyright 2026, Roku, Inc." Do **not** describe that OS as
+team-built or your own until you can say exactly what it is and where it came
+from. The bullets below claim only the CAN driver and the program leadership,
+which are yours regardless.
+
+### Organization
+
+- **id:** `lead-org-scale` — **VERIFY (12 engineers / 10+ projects)**
+  **bases:** lead, emb, swe
+  **skills:** engineering leadership, org scale, program management
+  **confidence:** completed
+  **evidence:** meeting deck, per-project owner slides. *Counted 2026-08-16 from
+  the Aug 12 deck: 13 named software contributors including you, and 9 software
+  projects on the slides plus BMS firmware and the software dash, which are not.
+  Confirm your own count before it goes out — do not inherit mine.*
+  > Lead the software organization for a Formula SAE electric racecar, directing **12 engineers** across **10+ concurrent projects** spanning a custom vehicle control unit, torque vectoring, traction control, derating, launch control, plant modeling, BMS firmware, and telemetry
+
+- **id:** `lead-weekly-review-cadence-swe`
+  **bases:** swe, lead
+  **skills:** process, technical review, status reporting, onboarding
+  **confidence:** completed
+  **evidence:** the meeting decks themselves — one per cycle, completed/to-do per project
+  > Run a weekly technical review cadence where every project reports written completed and to-do status against plan, and authored onboarding documentation and a software curriculum for new members
+
+### Custom VCU program — the strongest new material
+
+- **id:** `lead-custom-vcu-program-emb` ⭐
+  **bases:** emb, lead
+  **skills:** embedded program ownership, STM32H7, RTOS, CAN, watchdog, real-time control
+  **confidence:** in-progress
+  **evidence:** SRE-VCU repo (`vcuport` branch), boot/console logs in the deck
+  > Leading an in-house vehicle control unit program replacing a vendor VCU with a custom STM32H755 controller, with a 10 ms deterministic control task and a watchdog that reboots the controller if that task hangs
+
+  **This is now your best leadership bullet**, the way `srcan-flash-protocol-emb`
+  is your best individual one. Replacing a commercial VCU with in-house hardware
+  and firmware is a program a company would staff with several full-time
+  engineers. Lead with it for any embedded or firmware role.
+
+- **id:** `lead-vcu-seam-port-emb` — **VERIFY (4,100 / 5,400 lines)**
+  **bases:** emb, sim
+  **skills:** large-scale refactor, interface design, portability, migration strategy
+  **confidence:** in-progress
+  **evidence:** `vcuport` branch diff. *Numbers are straight off the deck; be
+  ready to say what counts as a "line refactored" if pressed.*
+  > Directed a seam-based port of a **5,400-line** production VCU codebase, fixing the sensor and CAN layer as the interface so everything below it could be rewritten for new silicon while control logic above carried over unmodified — **4,100 lines** migrated to date
+
+  The reason this is a good bullet is the *strategy*, not the line count. Say the
+  strategy out loud: the team keeps a codebase it already knows, and the rewrite
+  stays confined to driver and OS level. That is a real engineering decision with
+  a stated tradeoff, which is what an interviewer is listening for.
+
+- **id:** `lead-vcu-can-driver-emb`
   **bases:** emb
-  **skills:** technical leadership, embedded planning, CAN, telemetry
-  **confidence:** completed
-  **evidence:** project plans, review notes
-  > Lead software planning for VCU controls, embedded firmware, telemetry, CAN diagnostics, and validation workflows
+  **skills:** CAN, device drivers, bare-metal, dual-bus, bring-up
+  **confidence:** in-progress
+  **evidence:** driver source; bench test on two live buses is still to do
+  > Built the CAN driver for the custom VCU, sending and receiving on both controller buses, and specified the analog front-end changes needed for bring-up on the car
 
-- **id:** `lead-priorities-reviews-emb`
+  Note the constraint you caught — the STM32H755 analog pins are **not 5 V
+  tolerant**, so the analog lines need dividers before the board can be plugged
+  into the car. That detail is worth mentioning in an interview: it shows you
+  read the datasheet before letting hardware get damaged.
+
+### Vehicle dynamics controls
+
+- **id:** `lead-torque-vectoring-emb`
+  **bases:** emb, sim
+  **skills:** torque vectoring, four-motor control, project phasing, simulation
+  **confidence:** in-progress
+  **evidence:** TV kickoff meeting, motor and track sims, phase plan
+  > Started a four-motor torque vectoring program, defining a phased plan from an R&D minimum viable controller through motor and track simulation, with traction control layered on top of it
+
+- **id:** `lead-traction-control-scope-emb`
+  **bases:** emb, sim
+  **skills:** slip estimation, sensor fusion, control loop design, real-time budgets
+  **confidence:** proposed
+  **evidence:** written control-loop scope and block diagram in the deck
+  > Scoped a traction control loop for a four-motor car — per-wheel slip from wheel speed against an IMU-integrated speed estimate, converted to per-wheel torque limits handed to torque vectoring and clamped to the 80 kW rule on a **5 ms** cycle
+
+  **Keep this in proposed tense until it runs.** Scoped, not shipped. What makes
+  it a good answer anyway: a four-motor car has no measured ground speed, so the
+  interesting part is estimating it — integrate the IMU and correct toward the
+  least-spinning wheel. That is a real sensor-fusion problem and you can whiteboard
+  it today.
+
+- **id:** `lead-derating-oversight-emb`
   **bases:** emb
-  **skills:** cross-project coordination, technical review
-  **confidence:** completed
-  **evidence:** review cadence, project list
-  > Coordinate priorities and technical reviews across power limiting, launch control, dashboard, simulation, and vehicle testing
+  **skills:** thermal derating, config release, GPU acceleration
+  **confidence:** in-progress
+  **evidence:** derating repo, MIS 2026 data set
+  > Overseeing a thermal derating model heading to a first release as the season's baseline configuration, including GPU-accelerated sweeps and validation of VCU derating code through software- and hardware-in-the-loop
 
-- **id:** `lead-validation-strategy-sim`
-  **bases:** sim
-  **skills:** validation strategy, test planning, SIL
-  **confidence:** completed
-  **evidence:** test plan documents
-  > Lead validation strategy for VCU controls, telemetry, CAN diagnostics, simulation, and on-vehicle test workflows
+### Modeling and validation
 
-- **id:** `lead-testable-requirements-sim`
-  **bases:** sim
-  **skills:** requirements, reviews, SIL
-  **confidence:** completed
-  **evidence:** written requirements per project
-  > Define testable software requirements and coordinate reviews across power limiting, launch control, dashboard, and SIL projects
+- **id:** `lead-plant-models-sim`
+  **bases:** sim, emb
+  **skills:** MIL/SIL/HIL, plant modeling, battery/motor/inverter models
+  **confidence:** in-progress
+  **evidence:** model repo, integration meeting notes
+  > Leading a model-, software-, and hardware-in-the-loop effort building battery, BMS, motor, and inverter plant models so VCU control code can be validated against a simulated vehicle before it reaches hardware
 
-- **id:** `lead-python-tooling-swe`
-  **bases:** swe
-  **skills:** Python tooling, validation, shared workflows
-  **confidence:** completed
-  **evidence:** telemetry tooling repo
-  > Lead software planning for Python telemetry tooling, controller validation, CAN diagnostics, and shared testing workflows
+- **id:** `lead-model-integration-standards-sim`
+  **bases:** sim, swe
+  **skills:** interface standards, integration, code review, multi-developer coordination
+  **confidence:** in-progress
+  **evidence:** code standards doc, integration meeting
+  > Set code standards and an integration plan across a **7-engineer** modeling team so independently developed subsystem models compose into a single testbench
 
-- **id:** `lead-standardize-evidence-swe`
-  **bases:** swe
-  **skills:** process, test evidence, code review
-  **confidence:** completed
-  **evidence:** standardized templates
-  > Standardize project requirements, test evidence, and technical reviews across dashboard, simulation, and vehicle software projects
+- **id:** `lead-release-pipeline-swe`
+  **bases:** swe, lead
+  **skills:** build/release infrastructure, CI, infrastructure sourcing
+  **confidence:** in-progress
+  **evidence:** pipeline design, 120+ company outreach sheet
+  > Standing up a build and release pipeline for VCU firmware, specifying the compute, storage, and CI infrastructure it needs and driving sponsorship outreach to **120+** hardware, cloud, and developer-infrastructure companies to fund it
 
-- **id:** `lead-requirements-validation-plans`
-  **bases:** lead
-  **skills:** requirements, validation planning, ownership
+### Analysis
+
+- **id:** `lead-points-model-sim` — **VERIFY (59.25 s / 40.73 pts)**
+  **bases:** sim, swe
+  **skills:** quantitative modeling, competition strategy, MoTeC i2 Pro, data analysis
   **confidence:** completed
-  **evidence:** validation plans per subsystem
-  > Defined software requirements and validation plans across controls, telemetry, launch control, efficiency, and vehicle integration projects
+  **evidence:** points model spreadsheet, i2 Pro channel definitions. *Be able to
+  state what the 40.73 efficiency score is scored against and that it assumes the
+  0.17 CO₂ minimum.*
+  > Built a competition points model relating average lap time and efficiency score to points delta against the benchmark team, identifying a **59.25 s** lap target at a **40.73**-point efficiency score, and derived MoTeC i2 Pro channels to automate the underlying power-limit and regen analysis
+
+  This is the bullet that shows you make *decisions* with data, not just plots.
+  The chain is: analysis → lap-time and efficiency target → which control projects
+  get staffed. Say it in that order.
+
+### Subsystem firmware
+
+- **id:** `lead-bms-firmware-emb`
+  **bases:** emb
+  **skills:** BMS firmware, cell monitoring, SoC estimation, HV/current sense
+  **confidence:** in-progress
+  **evidence:** BMS controller design reviews, ADBMS2950 integration
+  > Leading firmware for a custom battery management system, covering cell monitoring, high-voltage and current sense over an ADBMS2950 front end, and the state-of-charge estimation built on it
+
+  **Scope guard:** say "BMS firmware", not "designed the BMS". The boards are
+  owned by electronics designers. Overclaiming here is the easiest way to lose
+  credibility on an otherwise strong story.
+
+- **id:** `lead-software-dash-emb`
+  **bases:** emb
+  **skills:** STM32, multi-bus CAN, driver display firmware
+  **confidence:** in-progress
+  **evidence:** dash firmware; pairs with `dash-can-display-emb` and `dash-energy-bar-emb`
+  > Leading dashboard firmware for a new three-CAN STM32 driver display, carrying the existing telemetry, energy-budget, and alerting features onto the new hardware
+
+- **id:** `lead-wireless-flashing-vehicle-emb`
+  **bases:** emb, swe
+  **skills:** OTA flashing, telemetry, field tooling
+  **confidence:** in-progress
+  **evidence:** modems sourced; on-car test at Crows still to do
+  > Driving wireless firmware flashing onto the race car for track testing, taking the CAN flashing work from bench tooling to a modem-backed link usable at the test site
+
+  This is the direct continuation of `srcan-flash-protocol-emb` — same protocol
+  work, now going on-vehicle. Mention them together; the pair reads as "built the
+  thing, then got it adopted."
 
 ---
 
@@ -437,6 +565,24 @@ Write two each and they become usable immediately.
 - **Educational Trading Bot** — named as a `swe` project. No bullets exist.
 - **Sailfish** beyond the single dashboard bullet — eight months of work is
   currently one line. Worth two or three.
-- **Traction control / regen** — flagged in the plan as *research, not shipped*.
-  If you add these, set `confidence: in-progress` or `proposed` and write them
-  in that tense. Do not let them drift into completed past tense.
+- ~~**Traction control / regen**~~ — **closed 2026-08-16.** Both now have bullets
+  under Software Lead: `lead-traction-control-scope-emb` (proposed — scoped, not
+  running) and `lead-points-model-sim` (completed — the regen and power-limit
+  analysis that fed the points model). The original warning still stands: traction
+  control does not move to completed tense until the loop runs on the car.
+
+## Things to bring back from the next meeting
+
+The Aug 12 deck turned seven empty leadership bullets into fifteen specific ones.
+The same deck cycle will keep doing that, so watch for these as they land — each
+one converts a bullet from `in-progress` to `completed`:
+
+- **Custom VCU on the car.** GPIO, ADC/PWM drivers and canManager are the
+  remaining blockers, plus the analog dividers and soldered IO ports. The day it
+  runs the car, `lead-custom-vcu-program-emb` becomes past tense and is arguably
+  the best bullet on the resume.
+- **The seam port finishing.** 4,100 of 5,400 lines. State the final number.
+- **Traction control running.** The whole `proposed` → `completed` jump.
+- **Wireless flashing at Crows.** Turns bench tooling into deployed tooling.
+- **A validated lap time against the 59.25 s target.** Predicted-versus-actual is
+  a much stronger claim than predicted alone.

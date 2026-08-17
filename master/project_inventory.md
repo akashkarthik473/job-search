@@ -29,6 +29,116 @@ against the endurance budget.
 
 ---
 
+## Custom VCU — In-House Vehicle Control Unit (SR-18)
+
+**Where:** Spartan Racing, Formula SAE — Software Lead
+**Timeline:** 2026 – present (active)
+**Stack:** C, STM32H755 (dual-core), CAN, GPIO/ADC/PWM drivers, real-time OS, watchdog
+**Repo:** SRE-VCU, `vcuport` branch
+**Added 2026-08-16** from the Aug 12 2026 Electronics & Software meeting deck.
+
+**What it is:** Replacing the vendor TTC 60 VCU with an in-house controller. Two
+halves: an OS/driver layer on the STM32H755, and a "seam" port of the existing
+5,400-line production firmware onto it.
+
+The seam idea is the part worth explaining. The sensor and CAN layer is fixed as
+the interface. Everything *below* the seam is rewritten for the new silicon;
+everything *above* it — the control logic the team has been building for years —
+is adapted with minimal modification. The team keeps a codebase it already knows,
+and the rewrite stays confined to driver and OS level.
+
+**Status as of Aug 12 2026:**
+- Done: 10 ms control task, watchdog that reboots on control-task hang, CAN
+  driver sending and receiving on both buses, seam foundations (sensors,
+  mathFunctions, sensorCalculations, vcuInputs/vcuOutputs), 4,100 of 5,400 lines
+  refactored
+- To do: GPIO driver, ADC/PWM driver, canManager, replacing stubs with real
+  CAN/GPIO, more console commands, dual-bus test on two live buses
+- Hardware blockers: IO ports need soldering to the dev board; the STM32H755
+  analog pins are **not 5 V tolerant**, so the analog lines need voltage dividers
+
+**What it proves:** embedded program ownership at a scale most undergraduates
+never touch — silicon selection, OS and driver bring-up, a deliberate migration
+strategy for a large existing codebase, real-time task scheduling, watchdog
+design, and dual-bus CAN.
+
+**Caution:** the console banner reads "Roku LT OS — Copyright 2026, Roku, Inc."
+Find out exactly what that OS is and where it came from before describing it in
+an interview. Claim the CAN driver, the seam strategy, and the program — those
+are unambiguous.
+
+---
+
+## Torque Vectoring & Traction Control (SR-18)
+
+**Where:** Spartan Racing, Formula SAE — Software Lead
+**Timeline:** 2026 – present (**scoped, not yet running**)
+**Stack:** C, four independent motors, IMU, wheel speed sensors, AMK inverters
+
+**What it is:** Two stacked controllers for a four-motor car. Torque vectoring
+splits torque across the wheels; traction control sits on top, computing a
+per-wheel torque limit and handing it down.
+
+The control loop, every 5 ms: read wheel speeds, IMU, pedal and brake → safety
+check (fault or not in drive → zero torque) → estimate car speed → per-wheel slip
+→ per-wheel torque limit → hand limits to torque vectoring → clamp to 80 kW and
+send one CAN command per inverter.
+
+`slip = (wheel speed × wheel radius − car speed) / (wheel speed × wheel radius)`
+
+**The interesting problem:** a four-motor car has no measured ground speed, so it
+has to be estimated — integrate the IMU and correct toward the least-spinning
+wheel. Good whiteboard answer today, even though nothing runs yet.
+
+**Open items:** verify AMK motor speed data decodes correctly (right bytes, right
+units) before trusting any of it.
+
+**What it proves:** control system design from scratch, sensor fusion under
+missing measurements, real-time budgeting, layered controller architecture.
+
+**Status discipline:** this is `proposed`. Do not let it drift into past tense.
+
+---
+
+## MIL / SIL / HIL Plant Modeling (SR-18)
+
+**Where:** Spartan Racing, Formula SAE — Software Lead
+**Timeline:** 2026 – present
+**Stack:** battery, BMS, motor and inverter plant models; VCU control code under test
+
+**What it is:** Plant models of the vehicle's electrical driveline so VCU control
+code can be exercised against a simulated car before touching hardware. Battery,
+BMS, motor and inverter models are substantially complete; the work now is
+integration and code standards across a seven-engineer team so independently
+built models compose into one testbench.
+
+**What it proves:** validation architecture, interface standardization across
+multiple developers, and the discipline of testing control code before it can
+damage a car. Pairs directly with the SIL replay harness below — that one replays
+recorded data, this one simulates the plant.
+
+---
+
+## VCU Build & Release Pipeline (SR-18)
+
+**Where:** Spartan Racing, Formula SAE — Software Lead
+**Timeline:** 2026 – present
+**Stack:** CI, build infrastructure, storage, sponsorship-funded compute
+
+**What it is:** A real build and release pipeline for VCU firmware, plus the
+infrastructure sourcing to pay for it — a categorized list of 120+ target
+companies across hardware, storage, refurb cloud, VPS, dev infra, networking,
+ISP, embedded, SBC, cellular, IoT, and satellite.
+
+**What it proves:** the unglamorous half of engineering leadership. You identified
+that the team's release process needed infrastructure, specified what it needed,
+and went after funding rather than waiting for it. Also genuine CI/build-system
+exposure, which is rare on a student resume.
+
+**Open item:** integrate the modeling work into the pipeline; finish PDR.
+
+---
+
 ## Formula SAE SIL Replay & Regression Harness
 
 **Where:** Spartan Racing, Formula SAE
@@ -71,7 +181,7 @@ before hardware, reproducible offline experimentation.
 
 ## Formula SAE EV Dashboard
 
-**Where:** Spartan Racing, Formula SAE
+**Where:** Spartan Racing, Formula SAE — contributor → Software Lead (dash firmware)
 **Timeline:** Feb 2026 – present
 **Stack:** C, STM32H7, CAN, SPI
 
@@ -81,6 +191,34 @@ lap-by-lap energy feedback.
 
 **What it proves:** STM32 bare-metal/RTOS work, SPI display driving, real-time
 CAN consumption, driver-facing UX under hard timing constraints.
+
+**Updated 2026-08-16:** now carrying onto new SR-18 hardware — a three-CAN STM32
+board (third transceiver added, pins reassigned) laid out by the electronics
+side. You lead the firmware; the board is not yours. This does not appear in the
+Aug 12 meeting deck, so the deck is not evidence for it — note somewhere what is.
+
+**Repo / artifacts:** _fill in_
+
+---
+
+## Custom BMS Firmware (SR-18)
+
+**Where:** Spartan Racing, Formula SAE — Software Lead (firmware side)
+**Timeline:** 2026 – present
+**Stack:** BMS controller firmware, ADBMS2950 HV and current sense, SoC estimation
+
+**What it is:** Firmware for an in-house battery management system. The ADBMS2950
+front end is a significant change for state-of-charge measurement over the
+previous architecture, along with a new LDO architecture for LV power and an
+on-board shunt.
+
+**Scope boundary — important.** The BMS controller and follower *boards* are
+owned by electronics designers (Hendson, Alex). Say "BMS firmware" or "software
+for the BMS", never "designed the BMS". The distinction costs you nothing and
+protects the rest of the story.
+
+**What it proves:** safety-critical embedded firmware, cell monitoring, analog
+front-end integration, estimation on a high-voltage system.
 
 **Repo / artifacts:** _fill in_
 

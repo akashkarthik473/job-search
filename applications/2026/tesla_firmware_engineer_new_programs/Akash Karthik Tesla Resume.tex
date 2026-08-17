@@ -1,0 +1,85 @@
+% ---------------------------------------------------------------------------
+% Tesla - Firmware Engineer New Programs
+% Tailored from bases/embedded_controls.tex on 2026-08-12
+% Worksheet: notes.md in this folder. Posting: job_description.txt
+%
+% Do NOT put the company name anywhere in the rendered document. It belongs in
+% the filename only.
+% ---------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+\usepackage{resume}
+
+\begin{document}
+\bodyfont
+
+\resumeheader
+\educationsection
+
+\sectionheader{TECHNICAL SKILLS}
+
+\techline{\textbf{Languages}: C, C++, Python, Assembly, Java}
+\techline{\textbf{Embedded}: Real-time firmware, microcontroller I/O, TTC 60 VCU, STM32H7, PX4, on-vehicle bring-up and debug}
+\techline{\textbf{Protocols \& Buses}: CAN, SPI, DBC signal definitions, CAN diagnostics, bus capture and trace analysis, firmware flashing over CAN}
+\techline{\textbf{Firmware \& Controls}: Fixed-point PI/PID, deterministic state machines, anti-windup, slew-rate limiting, sensor fusion, control-loop tuning}
+\techline{\textbf{Tools}: TASKING, TTC Downloader, BusMaster, MoTeC i2 Pro, GDB, Git, CSV telemetry}
+
+\sectionheader{EXPERIENCE}
+
+\roleline{Software Lead}{Jun 2026 - Present}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Leading an in-house VCU program replacing a vendor controller with custom STM32H755 hardware, running a 10 ms deterministic control task under a watchdog
+  \item Built its CAN driver across both controller buses and specified the analog front-end changes needed for vehicle bring-up
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Engineer Intern}{Feb 2026 - Present}
+\orgline{Argus Defense \textbar{} San Jose, CA}
+\begin{itemize}
+  \item Developed and validated embedded flight-control firmware in C on PX4, iterating control gains against logged flight telemetry
+  \item Tuned PID flight-control loops on a PX4 flight controller to reduce vertical and horizontal position drift in autonomous flight
+  \item Integrated and tuned visual-inertial odometry for onboard state estimation, improving position-hold accuracy
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Controls Engineer}{Jul 2025 - Jun 2026}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Developed embedded power-limiting firmware with a PI controller on the VCU, maximizing motor output while enforcing FSAE's 80 kW limit
+  \item Implemented a torque-to-power controller with fixed-point PI control, saturation, anti-windup, and slew limits for deterministic VCU execution
+  \item Built CAN diagnostics firmware for live power and torque frames, status bits, and error counters for real-time BusMaster monitoring
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Intern}{Aug 2024 - Jun 2025}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Built deterministic entry and exit state logic for power limiting from measured power, requested torque, and threshold flags
+  \item Tuned the PI torque controller used for power limiting to within \textbf{2\%} error, smoothing torque transitions to preserve drivability
+  \item \textbf{Results:} 1st in endurance at MIS EV 2025
+\end{itemize}
+
+\sectionheader{PROJECT EXPERIENCE}
+
+\roleline{SR-Wireless-CAN --- Wireless Vehicle Telemetry Platform}{2026}
+\orgline{\spartanracing \textbar{} Backend lead}
+\techline{Python, python-can, FastAPI, WebSockets, SQLite, Docker}
+\begin{itemize}
+  \item Proposed and implemented wireless firmware flashing for the TTC 60 VCU, decoding the flashing sequence from CAN trace captures and reimplementing it in Python over the bus
+  \item Developed wireless CAN capture and diagnostics tooling with DBC-driven signal decoding, replacing tethered bench monitoring during vehicle testing
+\end{itemize}
+
+\entryspace
+
+\roleline{Formula SAE EV Dashboard}{Feb 2026 - Present}
+\orgline{\spartanracing}
+\techline{C, STM32H7, CAN, SPI}
+\begin{itemize}
+  \item Built a real-time CAN telemetry display for HV voltage, throttle, cell temperature, and power budget on an LCD
+  \item Designed an energy bar and LED alert system giving the driver lap-by-lap feedback on energy budget
+\end{itemize}
+
+\end{document}
