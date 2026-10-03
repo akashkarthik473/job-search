@@ -29,6 +29,48 @@ against the endurance budget.
 
 ---
 
+## SRE-7b Custom-Inverter VCU Integration
+
+**Where:** Spartan Racing, Formula SAE — Software Lead and individual firmware contributor
+**Timeline:** Aug 2026 – present (active vehicle integration)
+**Stack:** C, TTC 60 VCU, CAN, VESC-compatible inverter commands, custom BMS
+**Repo:** SRE-VCU — `custom-inverters`, `dutycycle-but-better`, and
+`precharge-and-rtd-gate` branches
+
+**What it is:** An MVP powertrain path adapting the team's existing four-motor
+VCU architecture to custom inverters. The current branch maps calibrated pedal
+travel to bounded CAN current requests for the two rear custom inverters on the
+VCU's 10 ms application loop. It retains four wheel-position objects so the path
+can grow into the full four-inverter configuration without replacing the
+powertrain abstraction.
+
+The same work adapts the VCU to the team's custom 96-cell BMS. The parser covers
+46 CAN message IDs across 96 cells, 96 thermistors, and 8 modules, including
+pack voltage/current and state of charge, cell voltages and temperatures,
+balancing state, environmental telemetry, faults, and precharge status. A 1 s
+CAN heartbeat timeout turns loss of BMS communication into a fault rather than
+allowing stale data to appear healthy.
+
+**Your individual implementation:**
+- Mapped calibrated accelerator travel into bounded custom-inverter CAN current
+  commands and iterated the current/duty-cycle strategy during bring-up
+- Added a precharge request and ready-to-drive state machine that kept inverter
+  requests at zero until BMS heartbeat/fault/precharge state, HV presence, pedal
+  calibration, low-throttle arming, and the RTD button were valid
+- Reworked the VCU-side BMS CAN parser and integrated its status into the safety
+  checker
+
+**What it proves:** hands-on embedded C within the same role where you lead the
+software organization; CAN protocol implementation; powertrain state-machine
+design; defensive handling of stale safety data; and iterative vehicle bring-up.
+
+**Status discipline:** The repository proves implemented code, not a completed
+four-inverter vehicle deployment. The active MVP output currently targets the
+rear pair. Say "developing the custom-inverter VCU path for a four-motor EV," not
+"deployed four custom inverters," until the complete configuration runs on-car.
+
+---
+
 ## Custom VCU — In-House Vehicle Control Unit (SR-18)
 
 **Where:** Spartan Racing, Formula SAE — Software Lead

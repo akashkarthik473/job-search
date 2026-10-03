@@ -1,0 +1,78 @@
+﻿% ---------------------------------------------------------------------------
+% RoboForce - Robotics Electrical Engineering Intern
+% Tailored from bases/embedded_controls.tex on 2026-08-25
+% Worksheet: notes.md in this folder. Posting: job_description.txt
+%
+% Do NOT put the company name anywhere in the rendered document. It belongs in
+% the filename only.
+% ---------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+\usepackage{resume}
+
+% Keep adjacent roles compact while preserving clear visual separation.
+\setlist[itemize]{topsep=1pt,itemsep=0.5pt,after=\vspace{1pt}}
+\renewcommand{\entryspace}{\vspace{0pt}}
+
+\begin{document}
+\bodyfont
+
+\resumeheader
+\educationsection
+
+\sectionheader{TECHNICAL SKILLS}
+
+\techline{\textbf{Languages}: C/C++, Python, Assembly, Java}
+\techline{\textbf{Embedded Firmware}: STM32H7, TTC 60 VCU, PX4, real-time control, watchdogs, microcontroller I/O}
+\techline{\textbf{Protocols \& Linux}: CAN, SPI, Linux SocketCAN, python-can, WebSockets}
+\techline{\textbf{Test \& Debug}: Board bring-up, software-in-the-loop, scripted replay, GDB, BusMaster, TTC Downloader, telemetry traces}
+
+\sectionheader{EXPERIENCE}
+
+\roleline{Software Lead}{Jun 2026 - Present}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Leading an in-house VCU program replacing a vendor controller with custom STM32H755 hardware, running a \textbf{10 ms} deterministic control task under a watchdog that reboots the controller if the task hangs
+  \item Built its dual-bus CAN driver and identified non-\textbf{5 V}-tolerant analog inputs during bring-up, specifying voltage dividers before vehicle integration
+  \item Developing the custom-inverter path for a \textbf{four-motor} EV, mapping calibrated pedal input to bounded CAN current commands with fail-safe precharge and ready-to-drive gating
+  \item Reworked custom-BMS integration, decoding \textbf{46 CAN message IDs} across \textbf{96 cells}, \textbf{96 thermistors}, and \textbf{8 modules}, with a \textbf{1 s} communication timeout
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Engineer Intern}{Feb 2026 - Present}
+\orgline{Argus Defense \textbar{} San Jose, CA}
+\begin{itemize}
+  \item Developed and validated embedded flight-control firmware in C on PX4, using structured telemetry logs and repeatable flight tests to reproduce issues and evaluate revisions
+  \item Integrated and tuned visual-inertial odometry for onboard state estimation, comparing configuration changes against logged position-hold behavior
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Controls Engineer}{Jul 2025 - Jun 2026}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Developed fixed-point PI firmware with saturation, anti-windup, and slew limiting that held measured power within \textbf{0.01\%} of its commanded setpoint while enforcing an \textbf{80 kW} limit
+  \item Built CAN diagnostics firmware for live power and torque frames, status bits, and error counters for real-time BusMaster monitoring and regression review
+\end{itemize}
+
+\sectionheader{PROJECT EXPERIENCE}
+
+\roleline{STM32 Driver Display, Embedded Instrumentation}{Feb 2026 - Present}
+\orgline{\spartanracing}
+\techline{C, STM32H7, CAN, SPI}
+\begin{itemize}
+  \item Developed STM32H7 firmware that receives real-time CAN telemetry and drives an SPI LCD plus LED alerts for high-voltage, throttle, temperature, and power-budget status
+\end{itemize}
+
+\entryspace
+
+\roleline{SR-Wireless-CAN, Linux Firmware Deployment \& Test Tool}{2026}
+\orgline{\spartanracing \textbar{} Backend lead}
+\techline{Python, Linux SocketCAN, python-can, FastAPI, WebSockets, SQLite, Docker}
+\begin{itemize}
+  \item Reverse-engineered and implemented an \textbf{8-stage} CAN firmware-deployment workflow from vendor traces, validating acknowledgements and CRC results over Linux SocketCAN
+  \item Added simulated, recorded-trace, and live-CAN modes and documented frame encoding, timeouts, configuration, and recovery steps for repeatable debugging
+\end{itemize}
+
+\end{document}
+

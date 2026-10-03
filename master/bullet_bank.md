@@ -100,6 +100,33 @@ which are yours regardless.
   into the car. That detail is worth mentioning in an interview: it shows you
   read the datasheet before letting hardware get damaged.
 
+### Custom-inverter vehicle firmware — individual implementation
+
+- **id:** `lead-custom-inverter-vcu-emb` ⭐
+  **bases:** emb, sim
+  **skills:** embedded C, four-motor architecture, CAN, inverter control, safety state machines
+  **confidence:** in-progress
+  **evidence:** SRE-VCU repo; `custom-inverters`, `dutycycle-but-better`, and
+  `precharge-and-rtd-gate` branches; commits `5f70818`, `23c6ab1`, and `ae446b7`.
+  The current MVP path commands the rear custom inverters while retaining the
+  four-wheel powertrain abstraction, so do not claim that all four custom
+  inverters are already running from this code.
+  > Developing the custom-inverter VCU path for a four-motor Formula SAE EV, mapping calibrated pedal input to bounded CAN current commands and adding fail-safe precharge/ready-to-drive gating from BMS health, high-voltage presence, and low-throttle arming
+
+  This is the strongest hands-on complement to the program-leadership bullets:
+  it shows that you personally write the powertrain firmware, not only direct
+  the engineers who do. Keep the present-progressive tense until the complete
+  four-inverter configuration is validated on the vehicle.
+
+- **id:** `lead-custom-bms-integration-emb`
+  **bases:** emb
+  **skills:** CAN protocol integration, BMS, fault handling, heartbeat timeout, telemetry parsing
+  **confidence:** completed
+  **evidence:** SRE-VCU commit `a974676`; `dev/bms.c`, `dev/bms.h`, and
+  `dev/safety.c`. Implementation is complete in the repo; vehicle integration
+  and tuning continue on the active branches.
+  > Reworked the VCU's custom-BMS integration, decoding **46 CAN message IDs** across **96 cells**, **96 thermistors**, and **8 modules**, with a **1 s** heartbeat timeout to fault on communications loss
+
 ### Vehicle dynamics controls
 
 - **id:** `lead-torque-vectoring-emb`
@@ -138,12 +165,20 @@ which are yours regardless.
   **evidence:** model repo, integration meeting notes
   > Leading a model-, software-, and hardware-in-the-loop effort building battery, BMS, motor, and inverter plant models so VCU control code can be validated against a simulated vehicle before it reaches hardware
 
-- **id:** `lead-model-integration-standards-sim`
+- **id:** `lead-model-integration-standards-sim` — **VERIFY (7 senior engineers)**
   **bases:** sim, swe
   **skills:** interface standards, integration, code review, multi-developer coordination
   **confidence:** in-progress
-  **evidence:** code standards doc, integration meeting
-  > Set code standards and an integration plan across a **7-engineer** modeling team so independently developed subsystem models compose into a single testbench
+  **evidence:** code standards doc, integration meeting. *Corrected 2026-08-21:
+  the 7 counts the **senior** modeling engineers only — there are additional new
+  members and interns on top of that, so the old "7-engineer modeling team"
+  undercounted the team. If you can count the full roster, "a 12-engineer
+  modeling team" (or whatever the real total is) is a stronger and equally true
+  line than qualifying a smaller number — get the number and replace this.
+  Caution on the word "senior" on a student team: a reader may hear class year
+  rather than seniority. "Experienced" or "core" carries the same meaning
+  without the collision.*
+  > Set code standards and an integration plan for a modeling team of **7 senior engineers** so independently developed subsystem models compose into a single testbench
 
 - **id:** `lead-release-pipeline-swe`
   **bases:** swe, lead

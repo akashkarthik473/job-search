@@ -3,19 +3,19 @@
 > ## ⛔ BLOCKED — you are not eligible for this posting
 >
 > **Minimum requirement:** graduation between *Spring/Summer/Fall 2028 or
-> Winter 2029*. **You graduate May 2027** — a full year before the earliest
-> accepted date.
+> Winter 2029*. **You graduate December 2027** — one academic term before the
+> earliest accepted date.
 >
-> This is a hard filter, not a soft preference. Intern cohorts are built for
-> students who return to school afterward; by the summer this cohort runs, you
-> will have already graduated. The posting contains no "apply anyway" language
-> (unlike ST, which explicitly invited candidates missing a requirement).
+> This is a hard filter, not a soft preference. You would return to school for
+> Fall 2027, but the stated graduation window still excludes December 2027. The
+> posting contains no "apply anyway" language (unlike ST, which explicitly
+> invited candidates missing a requirement).
 >
 > **Do not spend an application on this req.** Do not adjust your graduation
 > date to fit it.
 >
 > **What to do instead:** apply to Samsara's **new-grad / entry-level software
-> engineer** openings, which are the correct door for a May 2027 graduate.
+> engineer** openings, which are the correct door for a December 2027 graduate.
 > Watch their careers page from roughly Fall 2026 onward.
 
 - **Job URL:** https://www.samsara.com/company/careers

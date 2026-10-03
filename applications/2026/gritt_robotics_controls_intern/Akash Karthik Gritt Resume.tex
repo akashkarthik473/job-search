@@ -1,0 +1,78 @@
+﻿% ---------------------------------------------------------------------------
+% Gritt - Robotics Controls Intern
+% Tailored from bases/simulation_robotics.tex on 2026-08-25
+% Worksheet: notes.md in this folder. Posting: job_description.txt
+%
+% Do NOT put the company name anywhere in the rendered document. It belongs in
+% the filename only.
+% ---------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+\usepackage{resume}
+
+% Tighter entry rhythm for a dense one-page technical resume.
+\setlist[itemize]{topsep=1pt,itemsep=0.5pt,after=\vspace{1pt}}
+\renewcommand{\entryspace}{\vspace{0pt}}
+
+\begin{document}
+\bodyfont
+
+\resumeheader
+\educationsection
+
+\sectionheader{TECHNICAL SKILLS}
+
+\techline{\textbf{Languages}: C/C++, Python, Java}
+\techline{\textbf{Controls \& Dynamics}: Fixed-point PI/PID, saturation, anti-windup, slew limiting, state estimation, sensor fusion, Bode/Nyquist}
+\techline{\textbf{Robotics \& Embedded}: PX4, visual-inertial odometry, IMU fusion, STM32H7, CAN, real-time firmware}
+\techline{\textbf{Simulation \& Validation}: Software-in-the-loop, closed-loop simulation, scripted replay, regression tests, parameter sweeps, NumPy, pandas, Matplotlib}
+
+\sectionheader{EXPERIENCE}
+
+\roleline{Software Lead}{Jun 2026 - Present}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Lead \textbf{12 engineers} across \textbf{10+ vehicle-control, modeling, validation, and telemetry projects} for a Formula SAE electric racecar
+  \item Developing the custom-inverter VCU path for a \textbf{four-motor} EV, mapping calibrated pedal input to bounded CAN current commands on a \textbf{10 ms} loop with fail-safe precharge and ready-to-drive gating
+  \item Lead battery, BMS, motor, and inverter plant-model integration for a core team of \textbf{7 engineers}, defining interfaces so VCU control code can be evaluated before hardware tests
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Engineer Intern}{Feb 2026 - Present}
+\orgline{Argus Defense \textbar{} San Jose, CA}
+\begin{itemize}
+  \item Tuned PX4 PID flight-control loops to reduce vertical and horizontal drift during autonomous position hold
+  \item Integrated and tuned visual-inertial odometry for onboard state estimation, connecting perception output to the flight-control stack and evaluating changes against logged telemetry
+  \item Developed embedded flight-control changes in C and iterated gains through repeatable hardware tests and log review
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Controls Engineer}{Jul 2025 - Jun 2026}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Developed fixed-point PI firmware with saturation, anti-windup, and slew limiting that held measured power within \textbf{0.01\%} of its commanded setpoint while enforcing an \textbf{80 kW} limit
+  \item Built Python telemetry parsers and a software-in-the-loop replay harness for recorded CSV logs, controller parameter sweeps, and regression testing
+  \item Planned and executed on-vehicle tests, measured control response and latency, and generated plots for tuning and baseline comparison
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Intern}{Aug 2024 - Jun 2025}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Tuned the PI torque controller to within \textbf{2\%} error using logged step responses, and the vehicle placed \textbf{1st in endurance} at MIS EV 2025
+\end{itemize}
+
+\sectionheader{PROJECT EXPERIENCE}
+
+\roleline{SR-Wireless-CAN, Control-System Test Platform}{2026}
+\orgline{\spartanracing \textbar{} Backend lead}
+\techline{Python, CAN, recorded-trace replay, FastAPI, WebSockets, SQLite, Docker}
+\begin{itemize}
+  \item Led backend development for a test platform supporting \textbf{3 capture modes}, including simulated data, recorded-trace replay, and live CAN, plus \textbf{3 signal-monitoring views}
+  \item Reverse-engineered and implemented an \textbf{8-stage} CAN firmware-deployment workflow from vendor traces, with acknowledgement checks, CRC verification, and persisted run history
+\end{itemize}
+
+\end{document}
+

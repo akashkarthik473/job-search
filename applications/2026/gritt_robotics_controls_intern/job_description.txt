@@ -1,0 +1,21 @@
+Gritt — Robotics Controls Internship
+
+Interns own a scoped deliverable end-to-end, work with a mentor, and demo the
+result to the full team. Duration is either 3 or 6 months.
+
+Work:
+- Develop motion-planning or control algorithms and take them to hardware
+- Benchmark against baselines and tune for robustness in real-world conditions
+- Integrate with perception and learning components in the full stack
+
+Qualifications:
+- MS/PhD in Robotics, ME, EE, or related field preferred; strong BS candidates welcome
+- Foundations in dynamics, optimization, and control theory
+- Strong C++ or Python
+- Robot hardware, competition-team, or research experience
+- Ownership with light supervision and strong problem-solving skills
+- US work authorization for a 3- or 6-month internship
+
+Nice to have: MPC, whole-body control, sampling/optimization-based planning, or
+related techniques. Example projects include safe-stop/human-avoidance around
+live crews and manipulation from a moving base on rough terrain.

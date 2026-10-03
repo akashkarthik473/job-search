@@ -1,0 +1,89 @@
+% ---------------------------------------------------------------------------
+% Zipline - System Validation Intern
+% Tailored from bases/simulation_robotics.tex on 2026-08-21
+% Worksheet: notes.md in this folder. Posting: job_description.txt
+%
+% Positioning: this is a test-and-validation role, not a controls role. The page
+% is ordered HIL/SIL -> automated pipelines -> flight test -> off-nominal tools
+% -> troubleshooting. Controls work stays, but as the thing under test.
+%
+% Do NOT put the company name anywhere in the rendered document. It belongs in
+% the filename only.
+% ---------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+\usepackage{resume}
+
+\begin{document}
+\bodyfont
+
+\resumeheader
+\educationsection
+
+\sectionheader{TECHNICAL SKILLS}
+
+\techline{\textbf{Validation \& Test}: Hardware- and software-in-the-loop, regression suites, replay harnesses, parameter sweeps, pytest}
+\techline{\textbf{Test Automation}: Python test tooling, build and release pipelines, GitHub Actions, headless batch runs, Docker}
+\techline{\textbf{Flight \& Robotics}: PX4 flight stack, flight testing, visual-inertial odometry, IMU sensor fusion, state estimation, telemetry logs}
+\techline{\textbf{Debug}: Diagnostics firmware, CAN/DBC, bus trace analysis, latency measurement, GDB, BusMaster, MoTeC i2 Pro}
+\techline{\textbf{Languages}: Python, C/C++, Java, SQL}
+
+\sectionheader{EXPERIENCE}
+
+\roleline{Software Lead}{Jun 2026 - Present}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Leading a model-, software-, and hardware-in-the-loop effort building battery, motor, and inverter plant models so control code is validated against a simulated vehicle before it reaches hardware
+  \item Set code standards and an integration plan for a modeling team of \textbf{7 senior engineers} so independently developed subsystem models compose into a system-level testbench
+  \item Standing up a build and release pipeline for control-unit firmware, specifying the compute, storage, and CI infrastructure it needs
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Engineer Intern}{Feb 2026 - Present}
+\orgline{Argus Defense \textbar{} San Jose, CA}
+\begin{itemize}
+  \item Developed embedded flight-control changes in C and iterated gains through repeatable flight tests and log review
+  \item Integrated and tuned visual-inertial odometry for onboard state estimation and evaluated performance against logged telemetry
+  \item Tuned PX4 PID flight-control loops to reduce vertical and horizontal drift during autonomous position hold
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Controls Engineer}{Jul 2025 - Jun 2026}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Built Python telemetry parsers and a software-in-the-loop replay harness to validate controller changes against recorded logs before hardware testing
+  \item Planned and executed on-vehicle tests, measured response and latency, and produced plots for regression review
+  \item Built diagnostics firmware exposing live power and torque frames, status bits, and error counters during test
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Intern}{Aug 2024 - Jun 2025}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Extracted a desktop simulator and regression suite to reproduce field scenarios, run controller sweeps, and prevent regressions
+  \item \textbf{Results:} 1st in endurance at MIS EV 2025
+\end{itemize}
+
+\sectionheader{PROJECT EXPERIENCE}
+
+\roleline{SR-Wireless-CAN --- Telemetry Capture, Replay \& Flashing Platform}{2026}
+\orgline{\spartanracing \textbar{} Backend lead}
+\techline{Python, python-can, bus trace analysis, FastAPI, WebSockets, SQLite, Docker}
+\begin{itemize}
+  \item Added replay of recorded bus traces plus simulated and hardware capture modes, so test runs could be reproduced and re-examined off the vehicle
+  \item Proposed and implemented wireless firmware flashing for the control unit, decoding an undocumented flashing sequence from bus trace captures and reimplementing it in Python
+\end{itemize}
+
+\entryspace
+
+\roleline{Vehicle Dynamics Simulation}{Jul 2025}
+\orgline{\spartanracing}
+\techline{Python, Pygame, Matplotlib, vehicle dynamics, PID control, CSV logging}
+\begin{itemize}
+  \item Built a physics-based simulator for torque, drag, acceleration, and steering to evaluate control changes before committing them to hardware
+  \item Added headless batch runs, seeded scenarios, CSV summaries, and plots for repeatable offline comparison between builds
+\end{itemize}
+
+\end{document}

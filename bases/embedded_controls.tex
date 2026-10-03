@@ -31,7 +31,7 @@
 \begin{itemize}
   \item Lead the software organization for a Formula SAE electric racecar, directing \textbf{12 engineers} across \textbf{10+ concurrent projects} spanning a custom vehicle control unit, torque vectoring, traction control, derating, BMS firmware, and telemetry
   \item Leading an in-house vehicle control unit program replacing a vendor VCU with a custom STM32H755 controller, with a 10 ms deterministic control task and a watchdog that reboots the controller if that task hangs
-  \item Directing a seam-based port of a \textbf{5,400-line} production VCU codebase, fixing the sensor and CAN layer as the interface so everything below it could be rewritten for new silicon while control logic above carried over unmodified
+  \item Developing the custom-inverter VCU path for a four-motor Formula SAE EV, mapping calibrated pedal input to bounded CAN current commands and adding fail-safe precharge/ready-to-drive gating from BMS health, high-voltage presence, and low-throttle arming
 \end{itemize}
 
 \entryspace
@@ -81,7 +81,6 @@
 \techline{Python, python-can, FastAPI, WebSockets, SQLite, Docker}
 \begin{itemize}
   \item Proposed and implemented wireless firmware flashing for the TTC 60 VCU, decoding the flashing sequence from CAN trace captures and reimplementing it in Python over the bus
-  \item Led backend development for the telemetry platform, streaming live CAN signals to a browser dashboard with DBC-driven decoding and recorded-trace replay
 \end{itemize}
 
 \end{document}

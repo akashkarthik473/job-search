@@ -1,0 +1,14 @@
+SK Hynix Memory Solution — Software Engineer Intern
+
+About the role: Develop storage test software and validation tests based on
+industry-standard specifications and firmware internal algorithms.
+
+Responsibilities:
+- Develop, code, and debug software tools using C++, JavaScript, Python, and
+  related technologies
+- Design storage test tools, software libraries, and user-facing APIs
+- Automate build and deployment tasks, test integration, and performance
+  indicator generation
+- Test and validate functionality, performance, and scalability
+- Create and maintain user manuals, design documents, and release notes
+- Use AI-assisted software development and documentation

@@ -1,0 +1,86 @@
+% ---------------------------------------------------------------------------
+% Neuralink - Firmware Engineer Intern
+% Tailored from bases/embedded_controls.tex on 2026-08-16
+% Worksheet: notes.md in this folder. Posting: job_description.txt
+%
+% Do NOT put the company name anywhere in the rendered document. It belongs in
+% the filename only.
+% ---------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+\usepackage{resume}
+
+\begin{document}
+\bodyfont
+
+\resumeheader
+\educationsection
+
+\sectionheader{TECHNICAL SKILLS}
+
+\techline{\textbf{Languages}: C, C++, Python, Assembly, Java}
+\techline{\textbf{Embedded}: Real-time firmware, bare-metal drivers, deterministic task scheduling, watchdogs, fixed-point PI/PID control}
+\techline{\textbf{Hardware}: STM32H755 (dual-core ARM Cortex-M7/M4), TTC 60 VCU, PX4, CAN (dual-bus, DBC), SPI, datasheet bring-up}
+\techline{\textbf{Test \& Validation}: Software- and hardware-in-the-loop, regression suites, plant modeling, bus capture and trace analysis}
+\techline{\textbf{Tools}: TASKING, TTC Downloader, BusMaster, MoTeC i2 Pro, GDB, Git, CSV telemetry}
+
+\sectionheader{EXPERIENCE}
+
+\roleline{Software Lead}{Jun 2026 - Present}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Leading an in-house controller program replacing a vendor unit with custom STM32H755 hardware, running a 10 ms deterministic control task under a watchdog that reboots the controller if that task hangs
+  \item Directing a seam-based port of a \textbf{5,400-line} production codebase, fixing the sensor and bus layer as the interface so everything below is rewritten for new silicon while control logic above carries over
+  \item Built its CAN driver across both controller buses and specified, from the datasheet, the analog front-end changes needed before the board could be connected to hardware
+  \item Leading a model-, software-, and hardware-in-the-loop effort so control code is validated against simulated plant models before reaching hardware, and set code standards across a modeling team of \textbf{7 senior engineers}
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Engineer Intern}{Feb 2026 - Present}
+\orgline{Argus Defense \textbar{} San Jose, CA}
+\begin{itemize}
+  \item Developed and validated embedded flight-control firmware in C on PX4, iterating control gains against logged flight telemetry
+  \item Integrated and tuned visual-inertial odometry for onboard state estimation, improving position-hold accuracy
+  \item Tuned PID flight-control loops to reduce vertical and horizontal position drift in autonomous flight
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Controls Engineer}{Jul 2025 - Jun 2026}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Implemented fixed-point PI torque control with saturation, anti-windup, and slew limits for deterministic execution
+  \item Developed embedded power-limiting firmware with a PI controller, maximizing actuator output under a hard \textbf{80 kW} limit
+  \item Built CAN diagnostics firmware for live power and torque frames, status bits, and error counters for bus monitoring
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Intern}{Aug 2024 - Jun 2025}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Built deterministic entry and exit state logic for power limiting from measured power, requested torque, and threshold flags
+  \item \textbf{Results:} 1st in endurance at MIS EV 2025
+\end{itemize}
+
+\sectionheader{PROJECT EXPERIENCE}
+
+\roleline{SR-Wireless-CAN --- Wireless Telemetry \& Flashing Platform}{2026}
+\orgline{\spartanracing \textbar{} Backend lead}
+\techline{Python, python-can, FastAPI, WebSockets, SQLite, Docker}
+\begin{itemize}
+  \item Proposed and implemented wireless firmware flashing for the TTC 60 controller, decoding an undocumented flashing sequence from CAN trace captures and reimplementing it in Python over the bus
+  \item Developed wireless CAN capture and diagnostics tooling with DBC-driven signal decoding, replacing tethered bench monitoring during hardware testing
+\end{itemize}
+
+\entryspace
+
+\roleline{Embedded Driver Display --- Real-Time Instrument Cluster}{Feb 2026 - Present}
+\orgline{\spartanracing}
+\techline{C, STM32H7, CAN, SPI}
+\begin{itemize}
+  \item Built a real-time CAN telemetry display for high-voltage, throttle, temperature, and power signals, driving an LCD over SPI
+  \item Designed an energy bar and LED alert system giving the operator lap-by-lap feedback on energy budget
+\end{itemize}
+
+\end{document}

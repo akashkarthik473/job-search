@@ -1,0 +1,93 @@
+% ---------------------------------------------------------------------------
+% H3X - Embedded Controls Intern
+% Tailored from bases/embedded_controls.tex on 2026-08-26
+% Source context: recruiter outreach saved in job_description.txt
+%
+% The company name belongs in the filename only, not the rendered document.
+% ---------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+\usepackage{resume}
+
+% Preserve the reference resume's one-page density without reducing type size.
+\setlist[itemize]{topsep=1pt,itemsep=0.5pt,after=\vspace{1pt}}
+\renewcommand{\entryspace}{\vspace{0pt}}
+
+% Use vertical bars instead of hyphens as contact separators.
+\renewcommand{\resumeheader}{%
+  \name{Akash Karthik}
+  \contact{San Jose, CA \textbar{} akashkarthik473@gmail.com \textbar{} linkedin.com/in/akash-karthik473 \textbar{} github.com/akashkarthik473 \textbar{} 9254069507}
+}
+
+\begin{document}
+\bodyfont
+
+\resumeheader
+\educationsection
+
+\sectionheader{TECHNICAL SKILLS}
+
+\techline{\textbf{Languages}: C/C++, Python, Assembly, Java}
+\techline{\textbf{Electric Powertrain Controls}: Fixed-point PI/PID control, power limiting, energy management, saturation, anti-windup, slew-rate limiting}
+\techline{\textbf{Embedded Systems}: STM32H755, TTC 60 VCU, PX4, real-time firmware, CAN, SPI, microcontroller I/O}
+\techline{\textbf{Test \& Tools}: Software-in-the-loop, CAN trace analysis, TASKING, BusMaster, MoTeC i2 Pro, GDB, Git}
+
+\sectionheader{EXPERIENCE}
+
+\roleline{Software Lead}{Jun 2026 to Present}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Lead the software organization for a Formula SAE electric racecar, directing \textbf{12 engineers} across \textbf{10+ concurrent projects} in four-motor controls, BMS and dashboard firmware, thermal derating, plant modeling, and telemetry
+  \item Direct four-motor controls and validation, defining a phased torque vectoring and traction control program and coordinating battery, motor, and inverter plant models for software- and hardware-in-the-loop testing
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Engineer Intern}{Feb 2026 to Present}
+\orgline{Argus Defense \textbar{} San Jose, CA}
+\begin{itemize}
+  \item Tuned PID flight-control loops on a PX4 flight controller to reduce vertical and horizontal position drift in autonomous flight
+  \item Integrated and tuned visual-inertial odometry for onboard state estimation, improving position-hold accuracy
+  \item Developed and validated embedded flight-control firmware in C on PX4, iterating control gains against logged flight telemetry
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Controls Engineer}{Jul 2025 to Jun 2026}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Designed a lap-adaptive energy-management algorithm that sets a power setpoint from cumulative energy versus budget, with measured power tracking the commanded setpoint within \textbf{0.01\%}
+  \item Developed embedded power-limiting firmware with a PI controller on the VCU, maximizing motor output while enforcing the Formula SAE \textbf{80 kW} limit
+  \item Built CAN diagnostics firmware for live power and torque frames, status bits, and error counters for real-time BusMaster monitoring
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Intern}{Aug 2024 to Jun 2025}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Built deterministic entry and exit state logic for power limiting from measured power, requested torque, and threshold flags
+  \item Tuned the PI torque controller used for power limiting to within \textbf{2\%} error, smoothing torque transitions to preserve drivability
+  \item \textbf{Results:} 1st in endurance at MIS EV 2025
+\end{itemize}
+
+\sectionheader{PROJECT EXPERIENCE}
+
+\roleline{Formula SAE EV Vehicle Simulation}{Jul 2025}
+\orgline{\spartanracing}
+\techline{Python, Pygame, Matplotlib, PID control, vehicle dynamics, CSV logging}
+\begin{itemize}
+  \item Built a physics-based EV simulation to model acceleration from vehicle mass, drag, gearing, and motor torque
+  \item Implemented PID-based power limiting to the \textbf{80 kW} rule and logged runs to CSV for repeatable tuning and validation
+\end{itemize}
+
+\entryspace
+
+\roleline{SR-Wireless-CAN, Vehicle Telemetry Platform}{2026}
+\orgline{\spartanracing \textbar{} Backend lead}
+\techline{Python, python-can, FastAPI, WebSockets, SQLite, Docker}
+\begin{itemize}
+  \item Proposed and implemented wireless firmware flashing for the VCU by decoding the vendor tool's CAN sequence from trace captures and reimplementing it in Python
+  \item Developed CAN capture and diagnostics tooling with DBC-driven signal decoding for live vehicle testing and recorded trace replay
+\end{itemize}
+
+\end{document}

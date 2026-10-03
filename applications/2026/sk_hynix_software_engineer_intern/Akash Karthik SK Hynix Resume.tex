@@ -1,0 +1,78 @@
+﻿% ---------------------------------------------------------------------------
+% SK Hynix - Software Engineer Intern
+% Tailored from bases/simulation_robotics.tex on 2026-08-25
+% Worksheet: notes.md in this folder. Posting: job_description.txt
+%
+% Do NOT put the company name anywhere in the rendered document. It belongs in
+% the filename only.
+% ---------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+\usepackage{resume}
+
+% Tighter role-to-role rhythm for this dense one-page version.
+\setlist[itemize]{topsep=1pt,itemsep=0.5pt,after=\vspace{1pt}}
+\renewcommand{\entryspace}{\vspace{0pt}}
+
+\begin{document}
+\bodyfont
+
+\resumeheader
+\educationsection
+
+\sectionheader{TECHNICAL SKILLS}
+
+\techline{\textbf{Languages}: C++, Python, TypeScript/JavaScript, C, SQL, Java}
+\techline{\textbf{Test \& Automation}: Software-in-the-loop, automated regression, scripted replay, parameter sweeps, pytest, GitHub Actions}
+\techline{\textbf{Software \& APIs}: FastAPI, Flask, WebSockets, REST/JSON, SQLite, Docker Compose, structured logging}
+\techline{\textbf{Embedded \& Data}: CAN, TTC 60 VCU, STM32H7, PX4, GDB, pandas, NumPy, CSV/JSON telemetry}
+
+\sectionheader{EXPERIENCE}
+
+\roleline{Software Lead}{Jun 2026 - Present}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Lead \textbf{12 engineers} across \textbf{10+ embedded, test, and telemetry projects}; define code standards and build, release, and test-integration plans for control-unit firmware
+  \item Developing the custom-inverter VCU path for a \textbf{four-motor} EV, mapping calibrated pedal input to bounded CAN current commands on a \textbf{10 ms} loop with fail-safe precharge and ready-to-drive gating
+  \item Reworked VCU integration for a custom BMS, decoding \textbf{46 CAN message IDs} across \textbf{96 cells}, \textbf{96 thermistors}, and \textbf{8 modules}, with a \textbf{1 s} heartbeat timeout for communication loss
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Engineer Intern}{Feb 2026 - Present}
+\orgline{Argus Defense \textbar{} San Jose, CA}
+\begin{itemize}
+  \item Developed and validated flight-control changes in C on PX4, using structured telemetry logs and repeatable flight tests to reproduce issues and evaluate revisions
+  \item Integrated and tuned visual-inertial odometry for onboard state estimation, comparing configuration changes against logged position-hold behavior
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Controls Engineer}{Jul 2025 - Jun 2026}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Designed a lap-adaptive energy controller that derived its power setpoint from cumulative energy versus budget and held measured power within \textbf{0.01\%} of the commanded setpoint
+  \item Developed fixed-point PI firmware with saturation, anti-windup, and slew limiting to maximize motor output while enforcing an \textbf{80 kW} limit
+  \item Built Python telemetry parsers and a software-in-the-loop replay harness for recorded CSV logs, controller parameter sweeps, and regression review
+\end{itemize}
+
+\entryspace
+
+\roleline{Software Intern}{Aug 2024 - Jun 2025}
+\orgline{\spartanracing}
+\begin{itemize}
+  \item Tuned the PI torque controller used for power limiting to within \textbf{2\%} error using logged step responses, smoothing torque transitions to preserve drivability
+\end{itemize}
+
+\sectionheader{PROJECT EXPERIENCE}
+
+\roleline{SR-Wireless-CAN --- Firmware Deployment \& Test Platform}{2026}
+\orgline{\spartanracing \textbar{} Backend lead}
+\techline{Python, FastAPI, WebSockets, React, SQLite, Docker Compose, CAN}
+\begin{itemize}
+  \item Led backend development for a vehicle test platform supporting \textbf{3 capture modes} --- simulated, recorded-trace replay, and live CAN --- plus \textbf{3 signal-monitoring views}
+  \item Reverse-engineered and implemented an \textbf{8-stage} CAN firmware-deployment workflow from vendor traces, with CRC verification, error logging, and persisted flash history
+  \item Containerized the backend, frontend, and database for one-command setup and documented protocol behavior, configuration, and recovery steps for repeatable team use
+\end{itemize}
+
+\end{document}
+

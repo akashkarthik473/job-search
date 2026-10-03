@@ -1,0 +1,16 @@
+Zipline — System Validation Intern
+Captured: 2026-08-21
+
+The Role
+
+As a System Validation Intern, you will contribute to testing and validating Zipline's complete system of systems—spanning the Zip, Droid, and Dock. You'll help build and refine automated testing pipelines, ensuring that software meets rigorous quality standards before being tested in flight. Working closely with a supportive and experienced team, you'll develop hands-on experience with cutting-edge tools and technologies while solving meaningful challenges. Your work will play an essential role in ensuring the reliability of systems that deliver life-saving goods worldwide. This role offers a unique opportunity to learn, grow, and make an impact in a fast-paced, mission-driven environment.
+
+What You'll Do
+
+    Assist in executing Hardware-in-the-Loop (HIL) tests and flight tests to validate the interaction between Zipline's Zip, Droid, and Dock systems.
+    Collaborate with a wide range of engineers from different teams to build and refine automated pipelines that test software before it is deployed in flight.
+    Design and improve tools that stress-test the system in off-nominal cases.
+    Analyze and troubleshoot hardware and software issues uncovered during testing, contributing to system improvements.
+    Work alongside a multidisciplinary team to design and execute system-level validation plans.
+    Develop and enhance scripts and tools to support automated testing workflows.
+    Learn how to ensure reliability and quality in complex, safety-critical systems, gaining valuable insights into real-world engineering challenges.

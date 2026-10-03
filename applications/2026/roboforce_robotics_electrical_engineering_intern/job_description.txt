@@ -1,0 +1,16 @@
+RoboForce — Robotics Electrical Engineering Intern
+
+RoboForce develops Physical AI-powered robots for demanding industrial work.
+The internship bridges hardware design and embedded software by bringing
+in-house electronics boards to life.
+
+Responsibilities:
+- Perform circuit validation, including power-on, signal-integrity, and
+  continuity tests
+- Troubleshoot hardware using oscilloscopes, multimeters, and logic analyzers
+- Develop, test, and maintain Arduino C++ and STM32 C firmware using open-source
+  libraries
+- Implement and debug CAN, I2C, SPI, and UART
+- Validate communication protocols in Linux environments
+- Ensure firmware reliability and robustness in real-world conditions
+- Turn debugging and firmware details into clear, actionable engineering guides

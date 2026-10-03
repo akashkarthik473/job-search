@@ -1,0 +1,60 @@
+                                                       Akash Karthik
+     San Jose, CA | akashkarthik473@gmail.com | linkedin.com/in/akash‐karthik473 | github.com/akashkarthik473 | 9254069507
+
+
+
+EDUCATION
+Bachelor of Science, Computer Science                                                                 Expected December 2027
+San Jose State University, San Jose, CA
+Relevant Coursework: Data Structures & Algorithms, Linear Algebra, Discrete Math, Computer Systems, Intro to Circuits
+
+
+TECHNICAL SKILLS
+Languages: C/C++, Python, Assembly, Java
+Electric Powertrain Controls: Fixed‐point PI/PID control, power limiting, energy management, saturation, anti‐windup, slew‐rate
+limiting
+Embedded Systems: STM32H755, TTC 60 VCU, PX4, real‐time firmware, CAN, SPI, microcontroller I/O
+Test & Tools: Software‐in‐the‐loop, CAN trace analysis, TASKING, BusMaster, MoTeC i2 Pro, GDB, Git
+
+
+EXPERIENCE
+Software Lead                                                                                                        Jun 2026 to Present
+Spartan Racing, Formula SAE | San Jose, CA
+    • Lead the software organization for a Formula SAE electric racecar, directing 12 engineers across 10+ concurrent projects in
+      four‐motor controls, BMS and dashboard firmware, thermal derating, plant modeling, and telemetry
+    • Direct four‐motor controls and validation, defining a phased torque vectoring and traction control program and coordinating
+      battery, motor, and inverter plant models for software‐ and hardware‐in‐the‐loop testing
+Software Engineer Intern                                                                                            Feb 2026 to Present
+Argus Defense | San Jose, CA
+    • Tuned PID flight‐control loops on a PX4 flight controller to reduce vertical and horizontal position drift in autonomous flight
+    • Integrated and tuned visual‐inertial odometry for onboard state estimation, improving position‐hold accuracy
+    • Developed and validated embedded flight‐control firmware in C on PX4, iterating control gains against logged flight telemetry
+Software Controls Engineer                                                                                          Jul 2025 to Jun 2026
+Spartan Racing, Formula SAE | San Jose, CA
+    • Designed a lap‐adaptive energy‐management algorithm that sets a power setpoint from cumulative energy versus budget,
+      with measured power tracking the commanded setpoint within 0.01%
+    • Developed embedded power‐limiting firmware with a PI controller on the VCU, maximizing motor output while enforcing the
+      Formula SAE 80 kW limit
+    • Built CAN diagnostics firmware for live power and torque frames, status bits, and error counters for real‐time BusMaster
+      monitoring
+Software Intern                                                                                                    Aug 2024 to Jun 2025
+Spartan Racing, Formula SAE | San Jose, CA
+    • Built deterministic entry and exit state logic for power limiting from measured power, requested torque, and threshold flags
+    • Tuned the PI torque controller used for power limiting to within 2% error, smoothing torque transitions to preserve drivability
+    • Results: 1st in endurance at MIS EV 2025
+
+
+PROJECT EXPERIENCE
+Formula SAE EV Vehicle Simulation                                                                                     Jul 2025
+Spartan Racing, Formula SAE | San Jose, CA
+Python, Pygame, Matplotlib, PID control, vehicle dynamics, CSV logging
+   • Built a physics‐based EV simulation to model acceleration from vehicle mass, drag, gearing, and motor torque
+   • Implemented PID‐based power limiting to the 80 kW rule and logged runs to CSV for repeatable tuning and validation
+SR‐Wireless‐CAN, Vehicle Telemetry Platform                                                                               2026
+Spartan Racing, Formula SAE | San Jose, CA| Backend lead
+Python, python‐can, FastAPI, WebSockets, SQLite, Docker
+   • Proposed and implemented wireless firmware flashing for the VCU by decoding the vendor tool’s CAN sequence from trace
+      captures and reimplementing it in Python
+   • Developed CAN capture and diagnostics tooling with DBC‐driven signal decoding for live vehicle testing and recorded trace
+      replay
+
